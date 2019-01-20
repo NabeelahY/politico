@@ -28,7 +28,7 @@ header{
 	text-decoration: none;
 }
 
-header .sign-in {
+header .sign-up {
 	float: right;
 	width: 100px;
 	padding:10px;
@@ -41,7 +41,7 @@ header .sign-in {
 	cursor: pointer;
 }
 
-header .sign-in a{
+header .sign-up a{
 	text-decoration: none;
 	color: #008753;
 }
@@ -59,39 +59,45 @@ header .sign-in a{
 	margin: 15px;
 	line-height: 1.5em;
 }
-
-.sign-up h2 {
-	margin-left: 25%;
-	padding: 20px;
-}
-
-
-.sign-up {
+.sign-in {
 	float: right;
 	padding: 20px;
-	margin: 15px;
-	width: 40%;
+	margin: 40px;
+	width: 35%;
 	line-height: 40px;
-}
+	background-color: #fff;
 
-.sign-up button{
-	width: 400px;
+}
+.sign-in h2 {
+	text-align: center;
+	color: #008753;
+}
+.sign-in input{
+	margin: 12px auto;
+	display: block;
+	width: 80%;
+	padding:20px;
+	font-size: 1.5em;
+	text-align: center;
+}
+.sign-in button{
+	width: 40%;
 	display: block;
 	padding: 20px;
-	margin: 30px;
-	font-size: 1.5em;
+	margin: 0 auto;
+	font-size: 1em;
 	font-weight: bold;
-	color: #008753;
-	background-color: #fff;
+	background-color: #008753;
+	color: #fff;
 	border: none;
 	cursor: pointer;
 }
 
-.sign-up button:hover {
+.sign-in button:hover {
 	box-shadow: 0 8px 16px 0 #ccc, 0 6px 20px 0 #111;
 	transition-duration: 0.5s;
 }
-.sign-up a{
+.sign-in a{
 	text-decoration: none;
 	color: #008753;
 }
@@ -114,7 +120,7 @@ footer a {
 
 @media(max-width:768px){
 
-	.header .logo a, header .sign-in, main .content, .sign-up {
+	.header .logo a, header .sign-up, main .content, .sign-in {
 		float: none;
 	}
 	header {
@@ -140,22 +146,27 @@ footer a {
 		padding: 10px;
 	}
 	
-	.sign-up{
-		margin: auto;
-		width: 80%;
+	.sign-in{
+		margin: 10px auto;
+		width: 70%;
+	}
+	.sign-in h2 {
+		font-size: 1em;
+		padding: 0;
+		margin: 0;
 	}
 
-	.sign-up h2 {
-		margin: 10px;
+	.sign-in input {
+		margin: 15px;
 		padding: 10px;
 		text-align: center;
-		font-size: 1em;
+		font-size: 15px;
 	}
-	.sign-up button{
+	.sign-in button{
 		margin: auto;
 		margin-bottom: 10px;
 		width: 50%;
 		padding: 10px;
-		font-size: 1em;
+		font-size: 0.8em;
 	}
 }
