@@ -1,0 +1,172 @@
+
+body{
+	font-family: Helvetica;
+	background:linear-gradient(35deg, #fff, #008753);
+	background-repeat: no-repeat;
+	margin: 0;
+	min-height: 100%;
+}
+
+header{
+	width: 100%;
+	overflow: hidden;
+	background-color: #008753;
+	padding: 10px 0;
+}
+.header span {
+	font-size: 1.5em;
+}
+.header h1{
+	margin: 0;
+	padding: 0;
+}
+
+.header .logo a{
+	float: left;
+	color: #fff;
+	padding: 12px;
+	text-decoration: none;
+}
+
+header .sign-up {
+	float: right;
+	width: 100px;
+	padding:10px;
+	margin: 15px 30px 15px 15px;
+	font-size: 1em;
+	font-weight: bold;
+	color: #008753;
+	background-color: #fff;
+	border: none;
+	cursor: pointer;
+}
+
+header .sign-up a{
+	text-decoration: none;
+	color: #008753;
+}
+
+.container{
+	width: 100%;
+	margin: auto;
+}
+.content {
+	float: left;
+	width: 40%;
+	font-size: 1.6em;
+	font-weight: bold;
+	padding: 50px;
+	margin: 15px;
+	line-height: 1.5em;
+}
+.sign-in {
+	float: right;
+	padding: 20px;
+	margin: 40px;
+	width: 35%;
+	line-height: 40px;
+	background-color: #fff;
+
+}
+.sign-in h2 {
+	text-align: center;
+	color: #008753;
+}
+.sign-in input{
+	margin: 12px auto;
+	display: block;
+	width: 80%;
+	padding:20px;
+	font-size: 1.5em;
+	text-align: center;
+}
+.sign-in button{
+	width: 40%;
+	display: block;
+	padding: 20px;
+	margin: 0 auto;
+	font-size: 1em;
+	font-weight: bold;
+	background-color: #008753;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+}
+
+.sign-in button:hover {
+	box-shadow: 0 8px 16px 0 #ccc, 0 6px 20px 0 #111;
+	transition-duration: 0.5s;
+}
+.sign-in a{
+	text-decoration: none;
+	color: #008753;
+}
+
+footer {
+	display: block;
+	float: none;
+	clear: both;
+	text-align: center;
+	font-size: 0.9em;
+	background: #008753;
+	padding: 5px;
+	color: #fff;
+}
+footer a {
+	text-decoration: none;
+	color: #fff;
+	cursor: pointer;
+}
+
+@media(max-width:768px){
+
+	.header .logo a, header .sign-up, main .content, .sign-in {
+		float: none;
+	}
+	header {
+		width: 100%;
+	}
+	.header h1 {
+		text-align: center;
+	}
+	.header button{
+		margin: 10px 0 10px 35%;
+		width: 30%;
+	}
+	main{
+		width: 100%
+	}
+	main .content{
+		margin: auto;
+		margin-top: 10px;
+		width: 80%;
+		text-align: center;
+		font-size: 0.8em;
+		font-weight: bold;
+		padding: 10px;
+	}
+	
+	.sign-in{
+		margin: 10px auto;
+		width: 70%;
+	}
+	.sign-in h2 {
+		font-size: 1em;
+		padding: 0;
+		margin: 0;
+	}
+
+	.sign-in input {
+		margin: 15px;
+		padding: 10px;
+		text-align: center;
+		font-size: 15px;
+	}
+	.sign-in button{
+		margin: auto;
+		margin-bottom: 10px;
+		width: 50%;
+		padding: 10px;
+		font-size: 0.8em;
+	}
+}
