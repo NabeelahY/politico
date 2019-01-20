@@ -1,10 +1,9 @@
-
-html{
+body{
 	font-family: Helvetica;
 	background:linear-gradient(35deg, #fff, #008753);
 	background-repeat: no-repeat;
-	
-	min-height: 100vh;
+	margin: 0;
+	min-height: 100%;
 }
 
 header{
@@ -28,7 +27,7 @@ header{
 	text-decoration: none;
 }
 
-header .sign-in {
+header .sign-up {
 	float: right;
 	width: 100px;
 	padding:10px;
@@ -41,7 +40,7 @@ header .sign-in {
 	cursor: pointer;
 }
 
-header .sign-in a{
+header .sign-up a{
 	text-decoration: none;
 	color: #008753;
 }
@@ -60,41 +59,6 @@ header .sign-in a{
 	line-height: 1.5em;
 }
 
-.sign-up h2 {
-	margin-left: 25%;
-	padding: 20px;
-}
-
-
-.sign-up {
-	float: right;
-	padding: 20px;
-	margin: 15px;
-	width: 40%;
-	line-height: 40px;
-}
-
-.sign-up button{
-	width: 400px;
-	display: block;
-	padding: 20px;
-	margin: 30px;
-	font-size: 1.5em;
-	font-weight: bold;
-	color: #008753;
-	background-color: #fff;
-	border: none;
-	cursor: pointer;
-}
-
-.sign-up button:hover {
-	box-shadow: 0 8px 16px 0 #ccc, 0 6px 20px 0 #111;
-	transition-duration: 0.5s;
-}
-.sign-up a{
-	text-decoration: none;
-	color: #008753;
-}
 .register {
 	position: relative;
 	overflow: hidden;
@@ -153,6 +117,48 @@ header .sign-in a{
 	text-decoration: none;
 }
 
+.sign-in {
+	float: right;
+	padding: 20px;
+	margin: 40px;
+	width: 35%;
+	line-height: 40px;
+	background-color: #fff;
+
+}
+.sign-in h2 {
+	text-align: center;
+	color: #008753;
+}
+.sign-in input{
+	margin: 12px auto;
+	display: block;
+	width: 80%;
+	padding:20px;
+	font-size: 1.5em;
+	text-align: center;
+}
+.sign-in button{
+	width: 40%;
+	display: block;
+	padding: 20px;
+	margin: 0 auto;
+	font-size: 1em;
+	font-weight: bold;
+	background-color: #008753;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+}
+
+.sign-in button:hover {
+	box-shadow: 0 8px 16px 0 #ccc, 0 6px 20px 0 #111;
+	transition-duration: 0.5s;
+}
+.sign-in a{
+	text-decoration: none;
+	color: #008753;
+}
 
 footer {
 	display: block;
@@ -171,9 +177,11 @@ footer a {
 }
 
 
+
+
 @media(max-width:768px){
 
-	.header .logo a, header .sign-in, main .content, .sign-up {
+	.header .logo a, header .sign-up, main .content, .sign-in {
 		float: none;
 	}
 	header {
@@ -198,7 +206,6 @@ footer a {
 		font-weight: bold;
 		padding: 10px;
 	}
-	
 	.sign-up{
 		margin: auto;
 		width: 80%;
@@ -210,7 +217,23 @@ footer a {
 		text-align: center;
 		font-size: 1em;
 	}
-	.sign-up button{
+	.sign-in{
+		margin: 10px auto;
+		width: 70%;
+	}
+	.sign-in h2 {
+		font-size: 1em;
+		padding: 0;
+		margin: 0;
+	}
+
+	.sign-in input {
+		margin: 15px;
+		padding: 10px;
+		text-align: center;
+		font-size: 15px;
+	}
+	.sign-in button{
 		margin: auto;
 		margin-bottom: 10px;
 		width: 50%;
@@ -242,5 +265,6 @@ footer a {
 	.signup-form button {
 		width: 80%;
 		margin: 0 auto;
+		font-size: 0.8em;
 	}
 }
