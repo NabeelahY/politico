@@ -1,9 +1,9 @@
 body{
 	margin: 0;
 	font-family: Helvetica;
-	background-repeat: no-repeat;
 	min-height: 100%;
 	background:linear-gradient(35deg, #fff, #008753);
+	background-repeat: no-repeat;
 }
 header,main,section,div,footer {
 	overflow: auto;
@@ -12,7 +12,6 @@ header,main,section,div,footer {
 header{
 	width: 100%;
 	background-color: #008753;
-
 }
 header .logo {
 	color: #fff;
@@ -177,12 +176,7 @@ header .sign-up a{
 .boxes div:hover {
 	box-shadow: 0 8px 16px 0 #ccc, 0 6px 20px 0 #111;
 }
-.box-top {
-	width: 26%;
-}
-.box{
-	width: 42%;	
-}
+
 
 /*SIGN UP FORM STYLING*/
 .register {
@@ -263,7 +257,6 @@ header .sign-up a{
 	padding: 10px;
 	font-size: 1em;
 	text-align: justify;
-
 }
 
 .table{
@@ -307,9 +300,6 @@ header .sign-up a{
 	color: #fff;
 	padding: 8px;
 }
-
-
-
 .create {
 	width: 80%;
 	margin: 0 auto;
@@ -353,6 +343,50 @@ header .sign-up a{
 	font-weight: bold;
 }
 
+/*VOTING PLATFORM*/
+.wrapper{
+	margin: 0 auto;
+	width: 80%;
+	background-color: #fff;
+}
+.wrapper .title {
+	padding: 10px;
+	background-color: #ccc;
+	color: #008753;
+	margin: 20px;
+	font-size: 2em;
+}
+.wrapper label {
+	font-size: 0.7em;
+	font-weight: bold;
+}
+.wrapper p {
+	font-size: 25px;
+}
+.wrapper img {
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.vote input{
+	cursor: pointer;
+}
+fieldset .describe{
+	font-size: 20px;
+	margin-left: 20px; 
+	padding: 10px 0 0 50px;
+}
+.details p{
+	padding: 20px 0;
+}
+
+.state select{
+	background-color: #008753;
+	color: #fff;
+	width: 200px;
+	padding: 10px;
+	margin-bottom: 20px;
+}
 
 footer {
 	float: none;
