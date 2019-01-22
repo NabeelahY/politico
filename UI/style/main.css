@@ -349,6 +349,42 @@ header .sign-up a{
 	font-weight: bold;
 }
 
+/*Admin Sign In*/
+.admin-s {
+	width: 50%;
+	margin: 20px auto;
+	background-color: #fff;
+	padding: 20px;
+	height: 70%;
+	box-shadow: 0 8px 16px 0 #ccc, 0 6px 20px 0 #111;
+}
+
+.admin-s h2 {
+	text-align: center;
+	color: #008753;
+}
+
+.admin-s input {
+	display: block;
+	width: 50%;
+	margin: 10px auto;
+	padding: 20px;
+}
+.admin-s button {
+	display: block;
+	margin: 10px auto;
+	padding: 10px;
+	width: 55%;
+	background-color: #008753;
+	color: #fff;
+	border: none;
+}
+.admin-s a {
+	text-decoration: none;
+	color: #fff;
+	font-weight: bold;
+}
+
 /*VOTING PLATFORM*/
 .wrapper{
 	margin: 0 auto;
@@ -543,6 +579,16 @@ footer a {
 	.form1 input, .form2 input, .office input {
 		font-size: 12px;
 	}
+	.admin-s h2 {
+		font-size: 18px;
+	}
+
+	.admin-s input {
+		display: block;
+		width: 80%;
+		margin: 20px auto;
+		padding: 20px;
+	}
 	.boxes div, .boxes .box-top, .boxes .box {
 		margin: ;
 		float: none;
@@ -554,7 +600,6 @@ footer a {
 		position: relative;
 		font-size: 20px;
 	}
-	
 
 }
 
@@ -568,7 +613,7 @@ footer a {
 	.signup-form {
 		width: inherit;
 		margin:10px 20px;
-		
+
 	}
 	.signup-form input {
 		width: 70%;
