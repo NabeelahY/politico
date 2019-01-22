@@ -302,6 +302,11 @@ header .sign-up a{
 	color: #fff;
 	border: none;
 }
+.admin-s a {
+	text-decoration: none;
+	color: #fff;
+	font-weight: bold;
+}
 
 footer {
 	float: none;
@@ -393,28 +398,28 @@ footer a {
 		padding: 20px;
 	}
 
-	}
+}
 
-	@media(max-width:725px){
-		.register{
-			width: 90%;
-		}
-		.half img {
-			display: none;
-		}
-		.signup-form {
-			width: inherit;
-			margin:10px 20px;
-
-		}
-		.signup-form input {
-			width: 70%;
-			margin: 0 auto;
-			margin-bottom: 10px;
-			font-size: 12px;
-		}
-		.signup-form button {
-			width: 80%;
-			margin: 0 auto;
-		}
+@media(max-width:725px){
+	.register{
+		width: 90%;
 	}
+	.half img {
+		display: none;
+	}
+	.signup-form {
+		width: inherit;
+		margin:10px 20px;
+
+	}
+	.signup-form input {
+		width: 70%;
+		margin: 0 auto;
+		margin-bottom: 10px;
+		font-size: 12px;
+	}
+	.signup-form button {
+		width: 80%;
+		margin: 0 auto;
+	}
+}
