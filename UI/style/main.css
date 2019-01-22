@@ -272,6 +272,36 @@ header .sign-up a{
 	font-weight: bold;
 }
 
+/*Admin Sign In*/
+.admin-s {
+	width: 50%;
+	margin: 20px auto;
+	background-color: #fff;
+	padding: 20px;
+	height: 70%;
+	box-shadow: 0 8px 16px 0 #ccc, 0 6px 20px 0 #111;
+}
+
+.admin-s h2 {
+	text-align: center;
+	color: #008753;
+}
+
+.admin-s input {
+	display: block;
+	width: 50%;
+	margin: 10px auto;
+	padding: 20px;
+}
+.admin-s button {
+	display: block;
+	margin: 10px auto;
+	padding: 10px;
+	width: 55%;
+	background-color: #008753;
+	color: #fff;
+	border: none;
+}
 
 footer {
 	float: none;
@@ -352,29 +382,39 @@ footer a {
 	.form1 input, .form2 input {
 		font-size: 12px;
 	}
+	.admin-s h2 {
+		font-size: 18px;
+	}
 
-}
-
-@media(max-width:725px){
-	.register{
-		width: 90%;
-	}
-	.half img {
-		display: none;
-	}
-	.signup-form {
-		width: inherit;
-		margin:10px 20px;
-		
-	}
-	.signup-form input {
-		width: 70%;
-		margin: 0 auto;
-		margin-bottom: 10px;
-		font-size: 12px;
-	}
-	.signup-form button {
+	.admin-s input {
+		display: block;
 		width: 80%;
-		margin: 0 auto;
+		margin: 20px auto;
+		padding: 20px;
 	}
-}
+
+	}
+
+	@media(max-width:725px){
+		.register{
+			width: 90%;
+		}
+		.half img {
+			display: none;
+		}
+		.signup-form {
+			width: inherit;
+			margin:10px 20px;
+
+		}
+		.signup-form input {
+			width: 70%;
+			margin: 0 auto;
+			margin-bottom: 10px;
+			font-size: 12px;
+		}
+		.signup-form button {
+			width: 80%;
+			margin: 0 auto;
+		}
+	}
