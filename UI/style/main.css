@@ -116,6 +116,11 @@ header .sign-up a{
 	margin: 10px auto;
 	padding: 20px;
 }
+.sign-in a {
+	text-decoration: none;
+	color: #fff;
+	font-weight: bold;
+}
 .sign-in button:hover, .sign-up:hover{
 	box-shadow: 0 8px 16px 0 #ccc, 0 6px 20px 0 #111;
 	transition-duration: 0.5s;
