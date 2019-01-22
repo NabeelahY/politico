@@ -394,6 +394,60 @@ fieldset .describe{
 	margin-bottom: 20px;
 }
 
+/*REGISTER OFFICE*/
+.office {
+	position: relative;
+	overflow: hidden;
+	width: 700px;
+	height: 500px;
+	margin: 0 auto;
+	margin-top: 80px;
+	margin-bottom:80px; 
+	background-color: #fff;
+	box-shadow: rgba(0,0,0,0.5) 0px 10px 30px;
+	padding: 20px;
+}
+.office h1{
+	text-align: center;
+	color: #008753;
+}
+.office input {
+	font-size: 14px;
+	display: block;
+	width: 60%;
+	height: 20px; 
+	margin: 12px auto;
+	padding: 20px;
+
+}
+.office select {
+	font-size: 16px;
+	display: block;
+	width: 67%;
+	margin: 0 auto;
+	padding: 20px;
+}
+.office button {
+	padding: 20px;
+	margin: 10px auto;
+	border: none;
+	display: block;
+	width: 60%;
+	background-color: #008753;
+	color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+}
+.office button a {
+	text-decoration: none;
+	color: #fff;
+	padding: 10px;
+}
+
+
+.office button:hover {
+	box-shadow: 0 8px 16px 0 #ccc, 0 6px 20px 0 #111;
+}
 footer {
 	float: none;
 	clear: both;
@@ -461,12 +515,19 @@ footer a {
 		margin: auto;
 		width: 80%;
 	}
+	.office{
+		margin: 20px auto;
+		width: 80%;
+	}
 
 	.sign-up h2 {
 		margin: 10px;
 		padding: 10px;
 		text-align: center;
 		font-size: 1em;
+	}
+	.office button{
+		padding: 10px;
 	}
 	.sign-up button{
 		margin: auto;
@@ -475,11 +536,11 @@ footer a {
 		padding: 10px;
 		font-size: 1em;
 	}
-	.form1, .form2 {
+	.form1, .form2{
 		width: 80%;
 		margin: 10px;
 	}
-	.form1 input, .form2 input {
+	.form1 input, .form2 input, .office input {
 		font-size: 12px;
 	}
 	.boxes div, .boxes .box-top, .boxes .box {
