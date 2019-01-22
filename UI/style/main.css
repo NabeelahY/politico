@@ -176,6 +176,12 @@ header .sign-up a{
 .boxes div:hover {
 	box-shadow: 0 8px 16px 0 #ccc, 0 6px 20px 0 #111;
 }
+.box-top {
+	width: 26%;
+}
+.box{
+	width: 42%
+}
 
 
 /*SIGN UP FORM STYLING*/
