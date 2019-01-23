@@ -318,6 +318,12 @@ header .sign-up a{
 	color: #fff;
 	padding: 8px;
 }
+#lagos-state {
+	display: none;
+}
+#lagos-state .show{
+	display: block;
+}
 .create {
 	width: 80%;
 	margin: 0 auto;
