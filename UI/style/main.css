@@ -1,12 +1,16 @@
 body{
 	margin: 0;
 	font-family: Helvetica;
-	min-height: 100%;
+	height: 100%;
 	background:linear-gradient(35deg, #fff, #008753);
 	background-repeat: no-repeat;
 }
 header,main,section,div,footer {
 	overflow: auto;
+}
+.main-container {
+	min-height: 70vh;
+	padding-bottom:50px; 
 }
 /*HEADER*/
 header{
@@ -181,9 +185,7 @@ header .sign-up a{
 .boxes div:hover {
 	box-shadow: 0 8px 16px 0 #ccc, 0 6px 20px 0 #111;
 }
-.box-top {
-	width: 26%;
-}
+
 .box{
 	width: 42%
 }
@@ -356,30 +358,31 @@ header .sign-up a{
 
 /*Admin Sign In*/
 .admin-s {
-	width: 50%;
+	width: 500px;
 	margin: 20px auto;
 	background-color: #fff;
 	padding: 20px;
-	height: 70%;
+	height: 400px;
 	box-shadow: 0 8px 16px 0 #ccc, 0 6px 20px 0 #111;
 }
 
 .admin-s h2 {
 	text-align: center;
 	color: #008753;
+	margin-bottom: 30px; 
 }
 
 .admin-s input {
 	display: block;
 	width: 50%;
-	margin: 10px auto;
+	margin:10px auto 30px;
 	padding: 20px;
 }
 .admin-s button {
 	display: block;
-	margin: 10px auto;
-	padding: 10px;
-	width: 55%;
+	margin: 10px auto 30px;
+	padding: 20px;
+	width: 300px;
 	background-color: #008753;
 	color: #fff;
 	border: none;
@@ -489,7 +492,41 @@ fieldset .describe{
 .office button:hover {
 	box-shadow: 0 8px 16px 0 #ccc, 0 6px 20px 0 #111;
 }
+
+/*PROFILE*/ 
+.top {
+	width: 80%;
+	background-color: #fff;
+	margin: 20px auto;
+	padding: 10px;
+	color: #008753;
+}
+.user-name {
+	float: left;
+	padding: 20px;
+	margin:10px;
+	width: 40%;
+}
+.details {
+	padding: 20px;
+	margin: 10px;
+	width: 40%;
+	line-height: 2em;
+}
+.history{
+	width: 80%;
+	background-color: #fff;
+	margin: 20px auto;
+	padding: 10px;
+	color: #008753;
+}
+.voted {
+	line-height: 2em;
+}
+
 footer {
+	position: relative;
+	bottom: 0;
 	float: none;
 	clear: both;
 	text-align: center;
@@ -551,7 +588,7 @@ footer a {
 		font-weight: bold;
 		padding: 10px;
 	}
-	
+
 	.sign-up{
 		margin: auto;
 		width: 80%;
@@ -584,18 +621,18 @@ footer a {
 	.form1 input, .form2 input, .office input {
 		font-size: 12px;
 	}
+	
 	.admin-s h2 {
 		font-size: 18px;
 	}
 
-	.admin-s input {
+	.admin-s input, .admin-s button {
 		display: block;
 		width: 80%;
-		margin: 20px auto;
+		margin: 20px auto 20px;
 		padding: 20px;
 	}
-	.boxes div, .boxes .box-top, .boxes .box {
-		margin: ;
+	.boxes div, .boxes .box {
 		float: none;
 		height: 100px;
 		width: 80%;
@@ -629,5 +666,17 @@ footer a {
 	.signup-form button {
 		width: 80%;
 		margin: 0 auto;
+	}
+	.user-name {
+		float: none;
+	}
+	.user-name, .details{
+		width: 80%;
+		text-align: center;
+		padding: 10px;
+		margin: 0 10px;
+	}
+	.admin-s {
+		width: 200px;
 	}
 }
