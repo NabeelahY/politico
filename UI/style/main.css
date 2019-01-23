@@ -208,7 +208,7 @@ header .sign-up a{
 }
 .half img {
 	width: 50%;
-	height: 100%;
+	height: 500px;
 	background-repeat: no-repeat;
 	float: right;	
 	background-size: 400px;
@@ -293,6 +293,11 @@ header .sign-up a{
 	margin: 0 auto;
 	border-collapse: collapse;
 	width: 70%;
+	overflow-x: auto;
+	padding: 10px;
+}
+.table h2 {
+	color: #008753;
 }
 
 #political-party th {
@@ -544,7 +549,7 @@ footer a {
 
 @media(max-width:768px){
 
-	header a.logo, .navbar ul, header .sign-in, main .content, .sign-up, .form1, .form2 {
+	header a.logo, .navbar ul, header .sign-up, main .content, .form1, .form2 {
 		float: none;
 	}
 
@@ -552,6 +557,10 @@ footer a {
 		display: block;
 		margin: 0 auto;
 		text-align: center;
+	}
+	header .sign-up{
+		display: block;
+		margin: 10px auto;
 	}
 	.navbar{
 		margin-bottom: 30px;
@@ -572,9 +581,19 @@ footer a {
 		font-size: 15px;
 		
 	}
-	header button{
-		margin: 10px 0 10px 35%;
-		width: 30%;
+	.sign-in{
+		margin: 20px;
+		padding: 0;
+	}
+	.sign-in form {
+		display: block;
+		margin: 0 auto;
+		width: 300px;
+	}
+	.sign-in form input{
+		display: block;
+		margin: 10px auto;
+		width: 60%;
 	}
 	main{
 		width: 100%
@@ -589,30 +608,13 @@ footer a {
 		padding: 10px;
 	}
 
-	.sign-up{
-		margin: auto;
-		width: 80%;
-	}
 	.office{
 		margin: 20px auto;
 		width: 80%;
 	}
 
-	.sign-up h2 {
-		margin: 10px;
-		padding: 10px;
-		text-align: center;
-		font-size: 1em;
-	}
 	.office button{
 		padding: 10px;
-	}
-	.sign-up button{
-		margin: auto;
-		margin-bottom: 10px;
-		width: 50%;
-		padding: 10px;
-		font-size: 1em;
 	}
 	.form1, .form2{
 		width: 80%;
