@@ -8,4 +8,6 @@ router.get("/parties/:id", PartyController.getSpecificParty);
 
 router.post("/parties", PartyController.createNewParty);
 
+router.patch("/parties/:id/name", PartyController.updatePartyName);
+
 export default router;
