@@ -7,6 +7,7 @@ class PartyController {
     		data: [...parties]
     	});
     }
+    //Get specific party
     static getSpecificParty(req, res) {
     	const findParty = parties.find(party => party.id === parseInt(req.params.id));
     	if (findParty) {
@@ -20,6 +21,7 @@ class PartyController {
     		message: "Party id not found"
     	});
     }
+    //Create new party
     static createNewParty(req, res) {
     	if(!req.body.name) {
     		return res.status(400).send({
@@ -41,6 +43,7 @@ class PartyController {
     		}]
     	});
     }
+    //Edit Party name 
     static updatePartyName(req, res){
     	const findParty = parties.find(party => party.id === parseInt(req.params.id));
     	if (findParty) {
@@ -74,6 +77,7 @@ class PartyController {
     		message: "Party id not found"
     	});	
     }
+    //Delete party
     static deleteParty(req, res){
     	const findParty = parties.find(party => party.id === parseInt(req.params.id));
     	if(!findParty) res.status(404).send("The record does not exist");
@@ -91,5 +95,4 @@ class PartyController {
     }
 }
  
-
 export default PartyController;
