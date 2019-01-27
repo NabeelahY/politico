@@ -12,7 +12,8 @@ let offices = [
 	id : 3, 
 	type : "federal" ,
 	name : "senate president",
-},
+}
+
 ];
 
 export default offices;
