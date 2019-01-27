@@ -74,6 +74,22 @@ class PartyController {
     		message: "Party id not found"
     	});	
     }
-}  
+    static deleteParty(req, res){
+    	const findParty = parties.find(party => party.id === parseInt(req.params.id));
+    	if(!findParty) res.status(404).send("The record does not exist");
+
+    	const index = parties.indexOf(findParty);
+    	parties.splice(index, 1);
+
+    	res.status(200).json({
+    		status: res.statusCode,
+    		data: [{
+    			id: findParty.id,
+    			message: "Party has been deleted"
+    		}]
+    	});
+    }
+}
+ 
 
 export default PartyController;
