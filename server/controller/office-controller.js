@@ -23,5 +23,11 @@ class OfficeController {
     		}]
     	});
     }
+    static getAllOffices(req, res){
+    	return res.status(200).json({
+    		status: res.statusCode,
+    		data: [...offices]
+    	});
+    }
 }
 export default OfficeController;
