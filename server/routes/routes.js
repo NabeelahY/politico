@@ -10,4 +10,6 @@ router.post("/parties", PartyController.createNewParty);
 
 router.patch("/parties/:id/name", PartyController.updatePartyName);
 
+router.delete("/parties/:id", PartyController.deleteParty);
+
 export default router;
