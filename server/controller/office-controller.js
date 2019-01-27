@@ -29,5 +29,18 @@ class OfficeController {
     		data: [...offices]
     	});
     }
+    static getSpecificOffice(req, res){
+    	const findOffice = offices.find(office => office.id === parseInt(req.params.id));
+    	if (findOffice) {
+    		return res.status(200).json({
+    			status: res.statusCode,
+    			data: [findOffice]
+    		});
+    	}
+    	return res.status(404).json({
+    		status: res.statusCode,
+    		message: "Office id not found"
+    	});
+    }
 }
 export default OfficeController;
