@@ -20,6 +20,27 @@ class PartyController {
     		message: "Party id not found"
     	});
     }
+    static createNewParty(req, res) {
+    	if(!req.body.name) {
+    		return res.status(400).send({
+    			status: res.statusCode,
+    			message: "Party name is required"
+    		});
+    	}
+    	const newParty = {
+    		id : parties.length + 1, 
+    		name : req.body.name,
+    		logoUrl : req.body.logoUrl 
+    	};
+    	parties.push(newParty);
+    	return res.status(201).json({
+    		status: res.statusCode,
+    		data: [{
+    			id: newParty.id,
+    			name: newParty.name
+    		}]
+    	});
+    }
 }
 
 export default PartyController;
