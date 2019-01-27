@@ -4,4 +4,8 @@ const router = Router();
 
 router.get("/parties", PartyController.getAllParties);
 
+router.get("/parties/:id", PartyController.getSpecificParty);
+
+router.post("/parties", PartyController.createNewParty);
+
 export default router;
