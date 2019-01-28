@@ -18,4 +18,6 @@ router.post("/offices", OfficeController.createNewOffice);
 
 router.get("/offices", OfficeController.getAllOffices);
 
+router.get("/offices/:id", OfficeController.getSpecificOffice);
+
 export default router;
