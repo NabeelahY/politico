@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js --exec babel-node --presets babel-preset-env",
-    "test": "mocha --require babel-register tests/*.js --exit"
+    "test": "mocha --require babel-register test/test.js --exit"
   },
   "keywords": [],
   "author": "Nabeelah Yousuph",

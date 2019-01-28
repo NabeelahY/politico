@@ -1,16 +1,17 @@
 import chai from "chai";
 import chaiHttp from "chai-http";
-import server from "../index"
+import app from "../index"
 
 chai.use(chaiHttp);
 chai.should();
+
 
 describe("Parties", () => {
     describe("GET Parties", () => {
 
         it("should get all Political Parties", (done) => {
              chai.request(app)
-                 .get('/')
+                 .get(`/api/v1/parties`)
                  .end((err, res) => {
                      res.should.have.status(200);
                      res.body.should.be.a('object');
@@ -21,7 +22,7 @@ describe("Parties", () => {
         it("should get a single political party", (done) => {
              const id = 1;
              chai.request(app)
-                 .get(`/${id}`)
+                 .get(`/api/v1/parties/${id}`)
                  .end((err, res) => {
                      res.should.have.status(200);
                      res.body.should.be.a('object');
@@ -32,7 +33,7 @@ describe("Parties", () => {
         it("should not get an unregistered political party", (done) => {
              const id = 5;
              chai.request(app)
-                 .get(`/${id}`)
+                 .get(`/api/v1/parties/${id}`)
                  .end((err, res) => {
                      res.should.have.status(404);
                      done();
