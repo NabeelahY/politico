@@ -2,10 +2,10 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
-    "start": "nodemon index.js --exec babel-node --presets babel-preset-env",
-    "test": "mocha --require babel-register test/test.js --exit"
+    "start": "nodemon server/index.js --exec babel-node --presets babel-preset-env",
+    "test": "mocha --require babel-register server/test/test.js --exit"
   },
   "keywords": [],
   "author": "Nabeelah Yousuph",

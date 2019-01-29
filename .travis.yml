@@ -1,7 +1,10 @@
 language: node_js
 node_js:
  - "node"
+
+npm install
+npm test
+
 cache:
   directories:
     - "node_modules"
-    
