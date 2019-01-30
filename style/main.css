@@ -178,7 +178,9 @@ header .sign-up a{
 }
 .boxes{
 	margin: 0 auto;
-	width: 80%;
+	width: 1000px;
+	padding: 20px;
+	display: table;
 }
 .boxes a {
 	text-decoration: none;
@@ -202,7 +204,8 @@ header .sign-up a{
 }
 
 .box{
-	width: 42%
+	vertical-align: middle;
+	width: 440px;
 }
 
 
@@ -684,16 +687,27 @@ footer a {
 		width: 80%;
 		margin: 20px auto 20px;
 		padding: 20px;
+		box-sizing: content-box;
+	}
+	.boxes {
+		width: 300px;
+		margin: 10px auto;
+		padding: 10px;
 	}
 	.boxes div, .boxes .box {
 		float: none;
 		height: 100px;
-		width: 80%;
-		overflow: hidden;
+		width: 250px;
+		padding: 10px;
+		margin: 10px auto;
 	}
 	.boxes h3 {
-		position: relative;
-		font-size: 20px;
+		margin: 0 auto;
+		font-size: 18px;
+	}
+	#search {
+		box-sizing: content-box;
+		width: inherit;
 	}
 
 }
