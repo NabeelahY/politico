@@ -129,6 +129,15 @@ header .sign-up a{
 	text-decoration: none;
 	color: #fff;
 	font-weight: bold;
+
+}
+.sign-in p a{
+	font-size: 15px;
+	text-decoration: underline;
+	text-align: center;
+	display: block;
+	margin: 0 auto;
+	color: #008753;
 }
 .sign-in button:hover, .sign-up:hover{
 	box-shadow: 0 8px 16px 0 #ccc, 0 6px 20px 0 #111;
@@ -382,7 +391,7 @@ header .sign-up a{
 	margin: 20px auto;
 	background-color: #fff;
 	padding: 20px;
-	height: 400px;
+	height: 450px;
 	box-shadow: 0 8px 16px 0 #ccc, 0 6px 20px 0 #111;
 }
 
