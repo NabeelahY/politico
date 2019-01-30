@@ -1,11 +1,18 @@
-import express from "express"
+import express from 'express';
+import bodyParser from 'body-parser';
+import router from './routes/routes';
 
 const app = express();
 
-app.use('/api/v1', require('./routes/api'));
+const port = process.env.PORT || 3000;
 
-app.listen(process.env.port || 3000, function() {
-	console.log("Listening on port 3000...")
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.use('/api/v1', router);
+
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
 });
 
 export default app;

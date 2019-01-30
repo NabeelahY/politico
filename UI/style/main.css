@@ -1,7 +1,7 @@
 body{
 	margin: 0;
 	font-family: Helvetica;
-	height: 100%;
+	min-height: 100%;
 	background:linear-gradient(35deg, #fff, #008753);
 	background-repeat: no-repeat;
 }
@@ -11,6 +11,9 @@ header,main,section,div,footer {
 .main-container {
 	min-height: 70vh;
 	padding-bottom:50px; 
+}
+main{
+	min-height: calc(100vh - 100px);
 }
 /*HEADER*/
 header{
@@ -74,7 +77,8 @@ header .sign-up a{
 /*INDEX CONTENT*/
 .container{
 	width: 100%;
-	margin: auto;
+	margin-top: 100px;
+
 }
 .content {
 	float: left;
@@ -117,8 +121,9 @@ header .sign-up a{
 	border: none;
 	color: #fff;
 	background-color: #008753;
-	margin: 10px auto;
-	padding: 20px;
+	margin: 0 auto;
+	padding:  16px 13px;
+	box-sizing: content-box
 }
 .sign-in a {
 	text-decoration: none;
@@ -193,18 +198,20 @@ header .sign-up a{
 
 /*SIGN UP FORM STYLING*/
 .register {
-	position: relative;
-	overflow: hidden;
-	width: 700px;
+	height: 100vh;
+	margin: 0 auto;
+	
+}
+.half {
+	display: block;
+	margin: 100px auto ;
 	height: 500px;
-	margin: auto;
-	margin-top: 80px;
-	margin-bottom:80px; 
+	width: 700px;
 	background-color: #fff;
 	box-shadow: rgba(0,0,0,0.5) 0px 10px 30px;
 }
 .half hr {
-	width: 40%;
+	width: 200px;
 }
 .half img {
 	width: 50%;
@@ -214,9 +221,9 @@ header .sign-up a{
 	background-size: 400px;
 }
 .half h1{
-	margin: auto;
 	text-align: center;
-	padding-top: 50px;
+	margin: 0;
+	padding: 20px;
 	
 }
 .signup-form {
@@ -234,12 +241,13 @@ header .sign-up a{
 
 .signup-form button {
 	display: block;
-	width: 200px;
+	box-sizing: content-box;
+	width: 175px;
 	padding: 16px 13px;
 	border: none;
 	background-color: #008753;
 	color: #fff;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: bold;
 }
 .signup-form p{
@@ -256,22 +264,15 @@ header .sign-up a{
 #dash {
 	margin: 0 0 10px;
 }
-.overview {
-	margin: 30px auto;
-	padding: 20px;
-}
-
-.overview h2 {
-	padding: 10px;
-	text-align: left;
+#dash h2 {
+	text-align: center;
+	font-size: 2em;
 	color: #fff;
 }
-.overview p{
-	padding: 10px;
-	font-size: 1em;
-	text-align: justify;
+#dash p {
+	text-align: center;
+	font-size: 1.5em;
 }
-
 .table{
 	margin: 20px auto;
 	padding: 30px;
@@ -279,14 +280,22 @@ header .sign-up a{
 	background-color:#fff;
 	overflow-x: auto;
 }
+.table p {
+	margin: 10px auto;
+	padding: 30px;
+	width: 70%;
+	line-height: 40px;
+	font-size: 20px;
+}
 
 #search {
 	display: block;
 	margin: 10px auto;
-	width: 50%;
+	width: 70%;
 	font-size: 16px;
 	padding: 12px 20px 12px 40px;
-	border:1px solid #ddd;	
+	border:1px solid #ddd;
+	box-sizing: border-box;	
 } 
 
 .table table {
@@ -437,6 +446,9 @@ fieldset .describe{
 	margin-left: 20px; 
 	padding: 10px 0 0 50px;
 }
+.can-details {
+	padding: 20px;
+}
 .details p{
 	padding: 20px 0;
 }
@@ -448,6 +460,33 @@ fieldset .describe{
 	padding: 10px;
 	margin-bottom: 20px;
 }
+#offices {
+	display: block;
+	margin: 20px auto;
+	width: 80%;
+	padding: 20px;
+	font-size: 1em;
+	font-weight: bold;
+	color: #008753;
+}
+#president{
+	display: none;
+}
+#governor{
+	display: none;
+}
+.vote-wrapper button{
+	display: block;
+	margin: 10px auto;
+	width: 60%;
+	padding: 20px;
+	background-color: #008753;
+	border:none;
+	color: #fff;
+	font-size: 30px;
+}
+
+
 
 /*REGISTER OFFICE*/
 .office {
@@ -478,13 +517,14 @@ fieldset .describe{
 .office select {
 	font-size: 16px;
 	display: block;
-	width: 67%;
+	box-sizing: content-box;
+	width: 60%;
 	margin: 0 auto;
 	padding: 20px;
 }
 .office button {
 	padding: 20px;
-	margin: 10px auto;
+	margin: 12px auto;
 	border: none;
 	display: block;
 	width: 60%;
@@ -492,6 +532,7 @@ fieldset .describe{
 	color: #fff;
 	font-size: 16px;
 	font-weight: bold;
+	box-sizing: content-box;
 }
 .office button a {
 	text-decoration: none;
@@ -531,8 +572,8 @@ fieldset .describe{
 	padding: 10px;
 	color: #008753;
 }
-.voted {
-	line-height: 2em;
+.history h2 {
+	padding: 20px;
 }
 
 footer {
@@ -594,12 +635,10 @@ footer a {
 	.sign-in form {
 		display: block;
 		margin: 0 auto;
-		width: 300px;
-	}
-	.sign-in form input{
-		display: block;
-		margin: 10px auto;
-		width: 60%;
+		padding: 10px;
+		width: 80%;
+		height: 300px;
+
 	}
 	main{
 		width: 100%
@@ -613,15 +652,11 @@ footer a {
 		font-weight: bold;
 		padding: 10px;
 	}
-
-	.office{
-		margin: 20px auto;
-		width: 80%;
+	.container {
+		width: 100%;
+		margin-top: 20px;
 	}
 
-	.office button{
-		padding: 10px;
-	}
 	.form1, .form2{
 		width: 80%;
 		margin: 10px;
@@ -657,6 +692,23 @@ footer a {
 	.register{
 		width: 90%;
 	}
+	.half {
+		width: 100%;
+	}
+	.half h1 {
+
+	}
+	.half > .signup-form {
+		width: 80%;
+		margin: 0 auto;
+	}
+	.half > .signup-form input{
+		width: 80%
+		padding:5px;
+	}
+	.half button {
+		width: 150px;
+	}
 	.half img {
 		display: none;
 	}
@@ -672,7 +724,7 @@ footer a {
 		font-size: 12px;
 	}
 	.signup-form button {
-		width: 80%;
+		width: 70%;
 		margin: 0 auto;
 	}
 	.user-name {
@@ -686,5 +738,32 @@ footer a {
 	}
 	.admin-s {
 		width: 200px;
+	}
+	.office{
+		margin: 20px auto;
+		width: 80%;
+	}
+
+	 .office select, .office button{
+		padding: 10px;
+		box-sizing: content-box;
+		width: 70%;
+	}
+	.vote {
+		display: block;
+		margin: 0;
+		padding: 0;
+		font-size: 20px;
+	}
+	.vote label {
+		font-size: 20px;
+	}
+	.vote .describe {
+		margin: 0;
+		padding: 10px;
+		font-size: 20px;
+	}
+	.vote img {
+		padding: 10px;
 	}
 }

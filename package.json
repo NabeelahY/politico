@@ -1,0 +1,27 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "nodemon server/index.js --exec babel-node --presets babel-preset-env",
+    "test": "mocha --require babel-register server/test/test.js --exit"
+  },
+  "keywords": [],
+  "author": "Nabeelah Yousuph",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "body-parser": "^1.18.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.15.0",
+    "mocha": "^5.2.0"
+  }
+}
