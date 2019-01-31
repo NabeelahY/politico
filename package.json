@@ -2,10 +2,13 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "server/index.js",
+  "main": "index.js",
   "scripts": {
     "start": "nodemon server/index.js --exec babel-node --presets babel-preset-env",
-    "test": "mocha --require babel-register server/test/test.js --exit"
+    "nyc": "nyc --reporter=lcov --reporter=text mocha './test/index.js' --require babel-register --recursive --exit",
+    "test": "nyc mocha --require babel-register server/test/index.js --exit",
+    "coverage": "npm run nyc -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
+   
   },
   "keywords": [],
   "author": "Nabeelah Yousuph",
@@ -15,13 +18,28 @@
     "body-parser": "^1.18.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/register": "^7.0.0",
     "babel-cli": "^6.26.0",
+    "babel-plugin-istanbul": "^5.1.0",
     "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
+    "coveralls": "^3.0.2",
+    "cross-env": "^5.2.0",
     "eslint": "^5.12.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.15.0",
-    "mocha": "^5.2.0"
+    "istanbul": "^1.1.0-alpha.1",
+    "mocha": "^5.2.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^13.1.0"
+  },
+  "nyc": {
+    "require": [
+      "@babel/register"
+    ],
+    "sourceMap": false,
+    "instrument": false
   }
 }
