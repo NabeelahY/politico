@@ -63,19 +63,6 @@ class PartyController {
         }],
       });
     }
-    /* if (findParty) {
-       delete findParty.id;
-      for( let i in req.body ) {
-        findParty[i] = req.body[i];
-      }
-      return res.status(200).json({
-        status: res.statusCode,
-           data: [{
-           id: findParty.id,
-           name: findParty.name
-      }]
-     });
-    } */
     return res.status(404).json({
       status: res.statusCode,
       message: 'Party id not found',
