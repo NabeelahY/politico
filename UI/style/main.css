@@ -360,12 +360,11 @@ header .sign-up a{
 .form1 {
 	float: right;
 	padding: 20px;
-	height: 400px;
+	height: 450px;
 }
 .form2{
 	float: left;
 	padding: 20px;
-	height: 400px;
 }
 .form1 h2, .form2 h2 {
 	text-align: center;
