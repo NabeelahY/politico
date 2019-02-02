@@ -49,7 +49,9 @@ describe('Offices', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          res.body.should.have.property('message').eql('Office name and type are required');
+          res.body.should.have.property('status').eql('failed');
+          res.body.should.have.property('error');
+          res.body.error.should.be.a('object');
           done();
         });
     });
@@ -58,7 +60,7 @@ describe('Offices', () => {
         .post('/api/v1/offices')
         .send({
           type: 'Chairman',
-          name: 'LG',
+          name: 'LGA',
         })
         .end((err, res) => {
           res.should.have.status(201);

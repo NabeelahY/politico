@@ -26,12 +26,6 @@ class PartyController {
   // Create new party
 
   static createNewParty(req, res) {
-    if (!req.body.name) {
-      return res.status(400).send({
-        status: res.statusCode,
-        message: 'Party name is required',
-      });
-    }
     const newParty = {
       id: parties.length + 1,
       name: req.body.name,
@@ -72,17 +66,21 @@ class PartyController {
 
   static deleteParty(req, res) {
     const findParty = parties.find(party => party.id === parseInt(req.params.id, 10));
-    if (!findParty) res.status(404).send('The record does not exist');
+    if (findParty) {
+      const index = parties.indexOf(findParty);
+      parties.splice(index, 1);
 
-    const index = parties.indexOf(findParty);
-    parties.splice(index, 1);
-
-    res.status(200).json({
+      return res.status(200).json({
+        status: res.statusCode,
+        data: [{
+          id: findParty.id,
+          message: 'Party has been deleted',
+        }],
+      });
+    }
+    return res.status(404).json({
       status: res.statusCode,
-      data: [{
-        id: findParty.id,
-        message: 'Party has been deleted',
-      }],
+      message: 'The party does not exist',
     });
   }
 }

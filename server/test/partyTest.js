@@ -51,8 +51,9 @@ describe('Parties', () => {
         })
         .end((err, res) => {
           res.should.have.status(400);
-          res.body.should.be.a('object');
-          res.body.should.have.property('message').eql('Party name is required');
+          res.body.should.have.property('status').eql('failed');
+          res.body.should.have.property('error');
+          res.body.error.should.be.a('object');
           done();
         });
     });
