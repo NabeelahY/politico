@@ -1,3 +1,5 @@
+// Middleware file gotten from scotch.io
+
 import _ from 'lodash';
 import Joi from 'joi';
 import Schemas from './validation';
