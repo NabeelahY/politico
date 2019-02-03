@@ -1,13 +1,13 @@
 // Get the modal
-var delete_modal = document.getElementById('delete-modal');
-var edit_modal = document.getElementById('edit-modal');
+let delete_modal = document.getElementById('delete-modal');
+let edit_modal = document.getElementById('edit-modal');
 // Get the button that opens the modal
 let delete_btn = document.querySelectorAll('button.delete');
 let edit_btn = document.querySelectorAll('button.edit');
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-var span1 = document.getElementsByClassName("close")[1];
+let span = document.getElementsByClassName("close")[0];
+let span1 = document.getElementsByClassName("close")[1];
 // When the user clicks the button, open the modal 
 
 [...delete_btn].map(function(el){
