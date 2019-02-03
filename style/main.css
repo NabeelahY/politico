@@ -321,7 +321,59 @@ header .sign-up a{
 .table h2 {
 	color: #008753;
 }
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+.modal-content p {
+	padding: 10px;
+}
+.modal-content input{
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0 auto;
+	padding: 10px;
+}
 
+.modal-content button{
+	display: block;
+	width: 100%;
+	margin: 10px auto;
+	border: none;
+	color: #fff;
+	background-color: #008753;
+	padding: 20px;
+}
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
 #political-party th {
 	padding: 12px 5px;
 	text-align: left;
