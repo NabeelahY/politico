@@ -4,7 +4,9 @@ import Joi from 'joi';
 const createParty = Joi.object().keys({
   name: Joi.string().trim().min(3)
     .required(),
-  logoUrl: Joi.string().trim().min(3)
+  hqaddress: Joi.string().trim().min(3)
+    .required(),
+  logourl: Joi.string().trim().min(3)
     .required(),
 });
 

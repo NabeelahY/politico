@@ -1,7 +1,8 @@
 import { Router } from 'express';
 import middleware from '../middleware/middleware';
-import PartyController from '../controller/party-controller';
+import PartyController from '../controller/party-controllers';
 import OfficeController from '../controller/office-controller';
+
 
 const router = Router();
 
