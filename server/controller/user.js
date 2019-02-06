@@ -50,6 +50,7 @@ class User {
       return res.status(400).send(error);
     }
   }
+
   static async userLogin(req, res) {
     if (!req.body.email || !req.body.password) {
       return res.status(400).send({
@@ -63,27 +64,30 @@ class User {
         message: 'Please enter a valid email address',
       });
     }
-   const text = 'SELECT * FROM users WHERE email = $1';
+    const text = 'SELECT * FROM users WHERE email = $1';
     try {
       const { rows } = await db.query(text, [req.body.email]);
       if (!rows[0]) {
         return res.status(400).send({
-        	status: res.statusCode,
-        	message: 'The credentials you provided is incorrect',
+          status: res.statusCode,
+          message: 'The credentials you provided is incorrect',
         });
       }
-      if(!Helper.comparePassword(rows[0].password, req.body.password)) {
-        return res.status(400).send({ 
-        	status: res.statusCode,
-        	message: 'The credentials you provided is incorrect',
+      if (!Helper.comparePassword(rows[0].password, req.body.password)) {
+        return res.status(400).send({
+          status: res.statusCode,
+          message: 'The credentials you provided is incorrect',
         });
       }
       const token = Helper.generateToken(rows[0].id);
-      return res.status(200).send({ token });
-    } catch(error) {
-      return res.status(400).send(error)
+      return res.status(200).send({
+        status: res.statusCode,
+        data: [rows[0],
+          `token: ${token}`],
+      });
+    } catch (error) {
+      return res.status(400).send(error);
     }
   }
-
 }
 export default User;

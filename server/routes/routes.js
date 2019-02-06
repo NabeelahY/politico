@@ -2,6 +2,8 @@ import { Router } from 'express';
 import middleware from '../middleware/middleware';
 import PartyController from '../controller/party-controllers';
 import OfficeController from '../controller/office-controller';
+import User from '../controller/user';
+import Auth from '../middleware/auth';
 
 
 const router = Router();
@@ -23,5 +25,9 @@ router.post('/offices', validateRequest, OfficeController.createNewOffice);
 router.get('/offices', OfficeController.getAllOffices);
 
 router.get('/offices/:id', OfficeController.getSpecificOffice);
+
+router.post('/auth/signup', User.createUser);
+
+router.post('/auth/login', User.userLogin);
 
 export default router;
