@@ -40,7 +40,16 @@ const createTables = () => {
         password VARCHAR(128) NOT NULL,
         isadmin BOOLEAN,
         created_date TIMESTAMP
-      )`;
+      );
+      CREATE TABLE IF NOT EXISTS
+      candidates(
+        id SERIAL,
+        office REFERENCES offices(id),
+        party REFERENCES parties(id),
+        candidate REFERENCES users(id),
+        created_date TIMESTAMP,
+        PRIMARY KEY(id, office)
+        );`;
 
   pool.query(tableQuery)
     .then((res) => {
