@@ -28,4 +28,6 @@ router.get('/offices/:id', OfficeController.getSpecificOffice);
 
 router.post('/auth/signup', User.createUser);
 
+router.post('/auth/login', User.userLogin);
+
 export default router;
