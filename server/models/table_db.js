@@ -28,6 +28,18 @@ const createTables = () => {
         name VARCHAR(128) NOT NULL UNIQUE,
         created_at TIMESTAMP,
         updated_at TIMESTAMP DEFAULT NULL
+      );
+      CREATE TABLE IF NOT EXISTS
+      users(
+        id SERIAL PRIMARY KEY,
+        firstname VARCHAR(128) NOT NULL,
+        othername VARCHAR(128) NOT NULL,
+        email VARCHAR(128) UNIQUE NOT NULL,
+        phonenumber VARCHAR(50) UNIQUE NOT NULL,
+        passporturl VARCHAR(128) NOT NULL,
+        password VARCHAR(128) NOT NULL,
+        isadmin BOOLEAN,
+        created_date TIMESTAMP
       )`;
 
   pool.query(tableQuery)
@@ -41,7 +53,7 @@ const createTables = () => {
     });
 };
 const dropTables = () => {
-  const tableQuery = 'DROP TABLE IF EXISTS parties, offices';
+  const tableQuery = 'DROP TABLE IF EXISTS parties, offices, users';
   pool.query(tableQuery)
     .then((res) => {
       console.log(res);
