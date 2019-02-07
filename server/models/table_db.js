@@ -26,8 +26,7 @@ const createTables = () => {
         id SERIAL PRIMARY KEY,
         type VARCHAR(128) NOT NULL,
         name VARCHAR(128) NOT NULL UNIQUE,
-        created_at TIMESTAMP,
-        updated_at TIMESTAMP DEFAULT NULL
+        created_at TIMESTAMP
       );
       CREATE TABLE IF NOT EXISTS
       users(
@@ -40,7 +39,16 @@ const createTables = () => {
         password VARCHAR(128) NOT NULL,
         isadmin BOOLEAN,
         created_date TIMESTAMP
-      )`;
+      );
+      CREATE TABLE IF NOT EXISTS
+      candidates(
+        id SERIAL,
+        office INTEGER REFERENCES offices(id) NOT NULL,
+        party INTEGER REFERENCES parties(id) NOT NULL,
+        candidate INTEGER REFERENCES users(id) NOT NULL,
+        created_at TIMESTAMP,
+        PRIMARY KEY(id, office)
+        );`;
 
   pool.query(tableQuery)
     .then((res) => {
@@ -53,7 +61,7 @@ const createTables = () => {
     });
 };
 const dropTables = () => {
-  const tableQuery = 'DROP TABLE IF EXISTS parties, offices, users';
+  const tableQuery = 'DROP TABLE IF EXISTS parties, offices, users, candidates';
   pool.query(tableQuery)
     .then((res) => {
       console.log(res);

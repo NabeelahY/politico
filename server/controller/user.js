@@ -28,7 +28,7 @@ class User {
       req.body.phonenumber,
       req.body.passporturl,
       hashPassword,
-      'false',
+      req.body.isadmin || 'false',
       new Date(),
     ];
 
