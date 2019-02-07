@@ -21,7 +21,30 @@ const Auth = {
       req.user = { id: decoded.userId };
       next();
     } catch (error) {
-      return res.status(400).send(error);
+      return res.status(400).json(error);
+    }
+  },
+
+  async verifyRole(req, res, next) {
+    const token = req.headers['x-access-token'];
+    if (!token) {
+      return res.status(400).send({
+        message: 'Token is not provided',
+      });
+    }
+    try {
+      const decoded = await jwt.verify(token, process.env.SECRET);
+      const text = 'SELECT * FROM users WHERE isadmin = $1';
+      const { rows } = await db.query(text, [decoded.userRole]);
+      if (rows[0].isadmin === 'false') {
+        return res.status(400).send({
+          message: 'Not authorized',
+        });
+      }
+      req.user = { isadmin: decoded.userRole };
+      next();
+    } catch (error) {
+      return res.status(400).json(error);
     }
   },
 };

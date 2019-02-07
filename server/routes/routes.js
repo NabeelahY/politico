@@ -3,6 +3,7 @@ import middleware from '../middleware/middleware';
 import PartyController from '../controller/party-controllers';
 import OfficeController from '../controller/office-controller';
 import User from '../controller/user';
+import Candidate from '../controller/candidate-controller';
 import Auth from '../middleware/auth';
 
 
@@ -29,5 +30,7 @@ router.get('/offices/:id', OfficeController.getSpecificOffice);
 router.post('/auth/signup', User.createUser);
 
 router.post('/auth/login', User.userLogin);
+
+router.post('/office/:id/register', Candidate.createCandidate);
 
 export default router;
