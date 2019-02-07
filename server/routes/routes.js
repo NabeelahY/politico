@@ -4,6 +4,7 @@ import PartyController from '../controller/party-controllers';
 import OfficeController from '../controller/office-controller';
 import User from '../controller/user';
 import Candidate from '../controller/candidate-controller';
+import VoteController from '../controller/vote';
 import Auth from '../middleware/auth';
 
 
@@ -32,5 +33,7 @@ router.post('/auth/signup', User.createUser);
 router.post('/auth/login', User.userLogin);
 
 router.post('/office/:id/register', Candidate.createCandidate);
+
+router.post('/votes', VoteController.vote);
 
 export default router;

@@ -45,10 +45,19 @@ const createTables = () => {
         id SERIAL,
         office INTEGER REFERENCES offices(id) NOT NULL,
         party INTEGER REFERENCES parties(id) NOT NULL,
-        candidate INTEGER REFERENCES users(id) NOT NULL,
+        candidate INTEGER REFERENCES users(id) NOT NULL UNIQUE,
         created_at TIMESTAMP,
         PRIMARY KEY(id, office)
-        );`;
+        );
+      CREATE TABLE IF NOT EXISTS
+      vote(
+       id SERIAL,
+       created_at TIMESTAMP NOT NULL,
+       created_by INTEGER REFERENCES users(id) NOT NULL,
+       office INTEGER REFERENCES offices(id) NOT NULL,
+       candidate INTEGER REFERENCES users(id) NOT NULL,
+       PRIMARY KEY(created_by, office)
+       )`;
 
   pool.query(tableQuery)
     .then((res) => {
@@ -61,7 +70,7 @@ const createTables = () => {
     });
 };
 const dropTables = () => {
-  const tableQuery = 'DROP TABLE IF EXISTS parties, offices, users, candidates';
+  const tableQuery = 'DROP TABLE IF EXISTS parties, offices, users, candidates, vote';
   pool.query(tableQuery)
     .then((res) => {
       console.log(res);
