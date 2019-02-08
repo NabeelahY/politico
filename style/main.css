@@ -393,7 +393,7 @@ header .sign-up a{
 	padding: 8px;
 }
 #lagos-state {
-	display: none;
+	display: block;
 }
 #lagos-state .show{
 	display: block;
