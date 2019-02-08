@@ -12,28 +12,30 @@ const router = Router();
 
 const validateRequest = middleware(true);
 
-router.get('/parties', PartyController.getAllParties);
+router.get('/parties', Auth.verifyToken, PartyController.getAllParties);
 
-router.get('/parties/:id', PartyController.getSpecificParty);
+router.get('/parties/:id', Auth.verifyToken, PartyController.getSpecificParty);
 
-router.post('/parties', validateRequest, PartyController.createNewParty);
+router.post('/parties', validateRequest, Auth.verifyRole, PartyController.createNewParty);
 
-router.patch('/parties/:id/name', validateRequest, PartyController.updatePartyName);
+router.patch('/parties/:id/name', validateRequest, Auth.verifyRole, PartyController.updatePartyName);
 
-router.delete('/parties/:id', PartyController.deleteParty);
+router.delete('/parties/:id', Auth.verifyRole, PartyController.deleteParty);
 
-router.post('/offices', validateRequest, OfficeController.createNewOffice);
+router.post('/offices', validateRequest, Auth.verifyRole, OfficeController.createNewOffice);
 
-router.get('/offices', OfficeController.getAllOffices);
+router.get('/offices', Auth.verifyToken, OfficeController.getAllOffices);
 
-router.get('/offices/:id', OfficeController.getSpecificOffice);
+router.get('/offices/:id', Auth.verifyToken, OfficeController.getSpecificOffice);
 
-router.post('/auth/signup', User.createUser);
+router.post('/auth/signup', validateRequest, User.createUser);
 
 router.post('/auth/login', User.userLogin);
 
-router.post('/office/:id/register', Candidate.createCandidate);
+router.post('/office/:id/register', Auth.verifyRole, Candidate.createCandidate);
 
 router.post('/votes', VoteController.vote);
+
+router.get('/office/:id/result', Auth.verifyToken, VoteController.getResults);
 
 export default router;

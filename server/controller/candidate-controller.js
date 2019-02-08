@@ -2,12 +2,12 @@ import db from '../models/db';
 
 class Candidate {
   static async createCandidate(req, res) {
-     if (!req.body.office || !req.body.party || !req.body.candidate) {
+    if (!req.body.office || !req.body.party || !req.body.candidate) {
       return res.status(400).send({
         status: res.statusCode,
         message: 'Some values are missing',
       });
-    } 
+    }
 
     const findUser = 'SELECT * FROM users WHERE id=$1';
     try {
@@ -33,7 +33,10 @@ class Candidate {
         data: response.rows[0],
       });
     } catch (error) {
-      return res.status(404).send(error);
+      return res.status(404).send({
+        status: res.statusCode,
+        message: error.detail,
+      });
     }
   }
 }

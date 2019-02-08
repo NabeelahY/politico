@@ -18,7 +18,40 @@ class VoteController {
         data: [rows[0]],
       });
     } catch (error) {
-      return res.status(404).send(error);
+      return res.status(404).send({
+        status: res.statusCode,
+        message: error.detail,
+      });
+    }
+  }
+
+  static async getResults(req, res) {
+    const voteResults = 'SELECT office, candidate, COUNT(candidate) AS result FROM vote GROUP BY office, candidate';
+    const findOffice = 'SELECT * FROM offices WHERE id = $1';
+    try {
+      const id = await db.query(findOffice, [req.params.id]);
+      if (!id) {
+        return res.status(404).send({
+          status: res.statusCode,
+          message: 'User id not found',
+        });
+      }
+      const { rows, rowCount } = await db.query(voteResults);
+      if (rowCount < 1) {
+        return res.status(404).send({
+          status: res.statusCode,
+          message: 'No results found',
+        });
+      }
+      return res.status(200).send({
+        status: res.statusCode,
+        data: [...rows],
+      });
+    } catch (error) {
+      return res.status(400).send({
+        status: res.statusCode,
+        message: error.detail,
+      });
     }
   }
 }

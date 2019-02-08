@@ -42,7 +42,6 @@ module.exports = (useJoiError = false) => {
                 // fetch only message and type from each error
                 details: _.map(err.details, ({ message, type }) => ({
                   message: message.replace(/['"]/g, ''),
-                  type,
                 })),
               },
             };
