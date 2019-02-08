@@ -17,7 +17,10 @@ class PartyController {
         data: [...rows],
       });
     } catch (error) {
-      return res.status(400).send(error);
+      return res.status(400).send({
+        status: res.statusCode,
+        message: error.detail,
+      });
     }
   }
   // Get specific party
@@ -37,7 +40,10 @@ class PartyController {
         data: rows[0],
       });
     } catch (error) {
-      return res.status(400).send(error);
+      return res.status(400).send({
+        status: res.statusCode,
+        message: error.detail,
+      });
     }
   }
   // Create new party
@@ -60,7 +66,10 @@ class PartyController {
         data: [rows[0]],
       });
     } catch (error) {
-      return res.status(404).send(error);
+      return res.status(404).send({
+        status: res.statusCode,
+        message: error.detail,
+      });
     }
   }
 
@@ -88,7 +97,10 @@ class PartyController {
         data: response.rows[0],
       });
     } catch (error) {
-      return res.status(400).send(error);
+      return res.status(400).send({
+        status: res.statusCode,
+        message: error.detail,
+      });
     }
   }
   // Delete party
@@ -111,7 +123,10 @@ class PartyController {
         }],
       });
     } catch (error) {
-      return res.status(404).send(error);
+      return res.status(404).send({
+        status: res.statusCode,
+        message: error.detail,
+      });
     }
   }
 }

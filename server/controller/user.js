@@ -2,7 +2,21 @@ import db from '../models/db';
 import Helper from '../helper/helper';
 
 class User {
+  static userDetails(detail) {
+    return {
+      id: detail.id,
+      fisrtname: detail.firstname,
+      othername: detail.othername,
+      email: detail.email,
+      phonenumber: detail.phonenumber,
+      passporturl: detail.passporturl,
+      isadmin: detail.isadmin,
+      created_date: detail.created_date,
+    };
+  }
+
   static async createUser(req, res) {
+    console.log(req.body);
     if (!req.body.email || !req.body.password) {
       return res.status(400).send({
         status: res.statusCode,
@@ -34,11 +48,12 @@ class User {
 
     try {
       const { rows } = await db.query(createQuery, newUser);
-      const token = Helper.generateToken(rows[0].id);
+      const token = Helper.generateToken(rows[0].id, rows[0].isadmin);
+      const tken = { 'token': token };
       return res.status(201).send({
         status: res.statusCode,
-        data: [rows[0],
-          `token: ${token}`],
+        data: [User.userDetails(rows[0]),
+          tken],
       });
     } catch (error) {
       if (error.routine === '_bt_check_unique') {
@@ -47,7 +62,10 @@ class User {
           message: 'User with that credential already exists. Please login with it or sign up with another',
         });
       }
-      return res.status(400).send(error);
+      return res.status(400).send({
+        status: res.statusCode,
+        message: error.detail,
+      });
     }
   }
 
@@ -79,14 +97,18 @@ class User {
           message: 'The credentials you provided is incorrect',
         });
       }
-      const token = Helper.generateToken(rows[0].id);
+      const token = Helper.generateToken(rows[0].id, rows[0].isadmin);
+      const tken = { 'token': token };
       return res.status(200).send({
         status: res.statusCode,
-        data: [rows[0],
-          `token: ${token}`],
+        data: [User.userDetails(rows[0]),
+          tken],
       });
     } catch (error) {
-      return res.status(400).send(error);
+      return res.status(400).send({
+        status: res.statusCode,
+        message: error.detail,
+      });
     }
   }
 }
