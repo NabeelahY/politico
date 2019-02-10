@@ -64,7 +64,7 @@ class User {
       }
       return res.status(400).send({
         status: res.statusCode,
-        message: error.detail,
+        message: error,
       });
     }
   }
@@ -107,7 +107,7 @@ class User {
     } catch (error) {
       return res.status(400).send({
         status: res.statusCode,
-        message: error.detail,
+        message: error,
       });
     }
   }
