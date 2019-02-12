@@ -30,7 +30,7 @@ app.use((error, req, res, next) => {
   });
 });
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
+  console.log('Listening on port %d in %s mode', this.address().port, app.settings.env);
 });
 
 export default app;
