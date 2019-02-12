@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server/index.js --exec babel-node --presets babel-preset-env",
+    "start": "babel-node server/index.js",
+    "start:dev": "nodemon server/index.js --exec babel-node --presets babel-preset-env",
     "test": "nyc --reporter=html --reporter=text mocha --timeout 50000 --exit --require babel-core/register  server/test/index.js ",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
