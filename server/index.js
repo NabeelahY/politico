@@ -2,6 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
+import expressValidation from 'express-validation';
 import 'babel-polyfill';
 import router from './routes/routes';
 
@@ -16,19 +17,30 @@ app.use(bodyParser.json());
 
 app.use('/api/v1', router);
 
-app.use((re, res, next) => {
-  const error = new Error('Not found');
-  error.status(404);
-  next(error);
+app.use((req, res, next) => {
+  res.status(404).json({
+    status: res.statusCode,
+    message: 'Wrong route, not found',
+  });
+  next();
 });
 
 app.use((error, req, res, next) => {
-  res.status(error.status || 500).json({
-    error: {
+  if (error instanceof expressValidation.ValidationError) {
+    res.status(error.status).json({
+      status: res.statusCode,
       message: error.message,
-    },
-  });
+      details: error.errors,
+    });
+    console.log(error);
+  } else {
+    res.status(error.status || 500).json({
+      status: res.statusCode,
+      message: error,
+    });
+  }
 });
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
