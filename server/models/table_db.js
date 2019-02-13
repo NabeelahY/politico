@@ -35,7 +35,7 @@ const createTables = () => {
         othername VARCHAR(128) NOT NULL,
         email VARCHAR(128) UNIQUE NOT NULL,
         phonenumber VARCHAR(50) UNIQUE NOT NULL,
-        passporturl VARCHAR(128) NOT NULL,
+        passporturl VARCHAR(128),
         password VARCHAR(128) NOT NULL,
         isadmin BOOLEAN,
         created_date TIMESTAMP
