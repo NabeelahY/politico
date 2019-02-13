@@ -12,14 +12,21 @@
 			<img src="img/naija.jpg" alt="flag">
 			<h1>Sign Up</h1>
 			<hr>
-			<form class="signup-form">
-					<input type="name" name="name" id="name" placeholder="Full Name">
+			<form class="signup-form" name="signup-form" method="POST" action="#">
+					<input type="text" name="name" id="fname" placeholder="First Name">
+					<input type="text" name="name" id="oname" placeholder="Other Name">
 					<input type="email" name="email" id="email" placeholder="Your Email">
-					<input type="text" name="text" id="id-no" placeholder="Voter's Id Number">
+					<input type="text" name="text" id="phone-no" placeholder="Phone Number">
+					<input type="text" name="profile-pic" id="profile-pic" placeholder="Profile Picture link">
 					<input type="password" name="password" id="password" placeholder="Your Password">
 					<button id="btn"><a href="">Sign Up</a></button>
 				</form>
+				<div id="info">
+					<div class="msg"></div>
+					<span class="close">&times;</span>
+				</div>
 		</div>
 	</section>
+	<script type="text/javascript" src="../client/signup.js"></script>
 </body>
 </html>
