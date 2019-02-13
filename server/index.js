@@ -25,6 +25,12 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+app.use('/', (req, res, next) => {
+  res.status(404).json({
+    status: res.statusCode,
+    message: 'Welcome to Politico!',
+  });
+
 app.use('/api/v1', router);
 
 app.use((req, res, next) => {
