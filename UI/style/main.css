@@ -107,7 +107,7 @@ header .sign-up a{
 	height: 100%;
 }
 .sign-in form input{
-	font-size: 14px;
+	font-size: 16px;
 	display: block;
 	height: 20px;
 	width: 50%; 
@@ -115,7 +115,7 @@ header .sign-up a{
 	margin-bottom: 12px;
 	padding: 16px 13px;
 }
-.sign-in button {
+.sign-in input[type="submit"] {
 	width: 50%;
 	display: block;
 	border: none;
@@ -139,7 +139,7 @@ header .sign-up a{
 	margin: 0 auto;
 	color: #008753;
 }
-.sign-in button:hover, .sign-up:hover{
+.sign-in input[type="submit"]:hover, .sign-up:hover{
 	box-shadow: 0 8px 16px 0 #ccc, 0 6px 20px 0 #111;
 	transition-duration: 0.5s;
 }
