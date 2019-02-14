@@ -29,7 +29,8 @@ app.use('/', (req, res, next) => {
   res.status(404).json({
     status: res.statusCode,
     message: 'Welcome to Politico!',
-  });
+  })
+});
 
 app.use('/api/v1', router);
 
