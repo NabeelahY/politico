@@ -50,7 +50,7 @@ signUp.addEventListener('submit', (e) => {
         message.style.display = 'block';
         document.getElementById('msg').innerHTML = 'Registration successful';
         localStorage.setItem('token', data.data[1].token);
-        window.location.assign('../UI/home.html');
+        window.location.assign('home.html');
       } else if (data.message) {
         const obj = data.message;
         const errors = Object.values(obj);
