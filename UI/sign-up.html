@@ -8,23 +8,23 @@
 </head>
 <body>
 	<section class="register">
+		<div id="info">
+			<span class="close">&times;</span>
+			<div id="msg"></div>
+		</div>
 		<div class="half">
 			<img src="img/naija.jpg" alt="flag">
 			<h1>Sign Up</h1>
 			<hr>
-			<form class="signup-form" name="signup-form" method="POST" action="#">
-					<input type="text" name="name" id="fname" placeholder="First Name">
-					<input type="text" name="name" id="oname" placeholder="Other Name">
-					<input type="email" name="email" id="email" placeholder="Your Email">
-					<input type="text" name="text" id="phone-no" placeholder="Phone Number">
-					<input type="text" name="profile-pic" id="profile-pic" placeholder="Profile Picture link">
-					<input type="password" name="password" id="password" placeholder="Your Password">
-					<button id="btn"><a href="">Sign Up</a></button>
-				</form>
-				<div id="info">
-					<div class="msg"></div>
-					<span class="close">&times;</span>
-				</div>
+			<form id="signup-form" name="signup-form" method="post">
+				<input type="text" name="name" id="fname" placeholder="First Name">
+				<input type="text" name="name" id="oname" placeholder="Other Name">
+				<input type="email" name="email" id="email" placeholder="Your Email">
+				<input type="text" name="text" id="phone-no" placeholder="Phone Number">
+				<input type="text" name="profile-pic" id="profile-pic" placeholder="Profile Picture link">
+				<input type="password" name="password" id="password" placeholder="Your Password">
+				<input type="submit" id="btn"><a href="">Sign Up</a></button>
+			</form>
 		</div>
 	</section>
 	<script type="text/javascript" src="../client/signup.js"></script>

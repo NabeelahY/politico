@@ -239,12 +239,12 @@ header .sign-up a{
 	padding: 20px;
 	
 }
-.signup-form {
+#signup-form {
 	width: 300px;
 	margin:10px 5px 5px 30px;
 	padding: 20px 40px;
 }
-.signup-form input {
+#signup-form input {
 	font-size: 14px;
 	display: block;
 	height: 15px; 
@@ -252,7 +252,7 @@ header .sign-up a{
 	padding: 16px 13px;
 }
 
-.signup-form button {
+#signup-form input[type='submit'] {
 	display: block;
 	box-sizing: content-box;
 	width: 175px;
@@ -263,19 +263,28 @@ header .sign-up a{
 	font-size: 14px;
 	font-weight: bold;
 }
-.signup-form p{
+#signup-form p{
 	padding-top: 5px;
 	font-size: 12px;
 	text-align: left;
 
 }
-.signup-form a{
+#signup-form a{
 	color: #fff;
 	text-decoration: none;
 }
-.half #info {
+#info {
 	display: none;
+	width: 700px;
+	background-color: #fff;
+	margin: 50px auto 0;
+	padding: 10px;
+	font-size: 20px;
+	color: #008753;
+	line-height: 30px;
 }
+
+
 /*ADMIN STYLING*/
 #dash {
 	margin: 0 0 10px;
@@ -778,11 +787,11 @@ footer a {
 	.half h1 {
 
 	}
-	.half > .signup-form {
+	.half > #signup-form {
 		width: 80%;
 		margin: 0 auto;
 	}
-	.half > .signup-form input{
+	.half > #signup-form input{
 		width: 80%
 		padding:5px;
 	}
@@ -792,18 +801,18 @@ footer a {
 	.half img {
 		display: none;
 	}
-	.signup-form {
+	#signup-form {
 		width: inherit;
 		margin:10px 20px;
 
 	}
-	.signup-form input {
+	#signup-form input {
 		width: 70%;
 		margin: 0 auto;
 		margin-bottom: 10px;
 		font-size: 12px;
 	}
-	.signup-form button {
+	#signup-form input[type='submit'] {
 		width: 70%;
 		margin: 0 auto;
 	}

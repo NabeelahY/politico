@@ -38,8 +38,6 @@ export default {
       email: Joi.string().email().lowercase().required(),
       phonenumber: Joi.string().regex(/^[0-9]+/).trim().min(7)
         .required(),
-      passporturl: Joi.string().trim().min(3)
-        .required(),
       password: Joi.string().min(7).alphanum().required(),
       isadmin: Joi.string(),
     },
