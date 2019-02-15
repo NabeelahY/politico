@@ -1,12 +1,7 @@
-const signUp = document.getElementById('signup-form');
-const firstName = document.getElementById('fname');
-const otherName = document.getElementById('oname');
+const logIn = document.getElementById('login-form');
 const email = document.getElementById('email');
-const phone = document.getElementById('phone-no');
-const profile = document.getElementById('profile-pic');
-const pswd = document.getElementById('password');
+const pswd = document.getElementById('pswd');
 const message = document.getElementById('info');
-const close = document.getElementsByClassName('close')[0];
 
 const displayMsg = (errors) => {
   errors.forEach((error) => {
@@ -15,40 +10,28 @@ const displayMsg = (errors) => {
   });
 };
 
-close.onclick = () => {
-  message.style.display = 'none';
-};
-
-signUp.addEventListener('submit', (e) => {
+logIn.addEventListener('submit', (e) => {
   e.preventDefault();
-  let fName = firstName.value;
-  let oName = otherName.value;
-  let mail = email.value;
-  let phoneNo = phone.value;
-  let profilePic = profile.value;
-  let password = pswd.value;
+  const mail = email.value;
+  const password = pswd.value;
 
-  fetch('https://politico-page.herokuapp.com/api/v1/auth/signup', {
+  fetch('https://politico-page.herokuapp.com/api/v1/auth/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json, */*',
     },
     body: JSON.stringify({
-      'firstname': fName,
-      'othername': oName,
       'email': mail,
-      'phonenumber': phoneNo,
-      'passporturl': profilePic,
       'password': password,
     }),
   })
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-      if (data.status === 200 || data.status === 201) {
+      if (data.status === 200) {
         message.style.display = 'block';
-        document.getElementById('msg').innerHTML = 'Registration successful';
+        document.getElementById('msg').innerHTML = 'Login successful';
         localStorage.setItem('token', data.data[1].token);
         window.location.assign('./home.html');
       } else if (data.message) {
