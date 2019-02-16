@@ -65,7 +65,7 @@ class OfficeController {
         data: [rows[0]],
       });
     } catch (error) {
-      return res.status(404).send({
+      return res.status(400).send({
         status: res.statusCode,
         message: error.detail,
       });

@@ -16,6 +16,7 @@ const Auth = {
       const { rows } = await db.query(text, [decoded.userId]);
       if (!rows[0]) {
         return res.status(400).send({
+          status: res.statusCode,
           message: 'The token you provided is invalid',
         });
       }
@@ -30,6 +31,7 @@ const Auth = {
     const token = req.headers['x-access-token'];
     if (!token) {
       return res.status(400).send({
+        status: res.statusCode,
         message: 'Token is not provided',
       });
     }
@@ -39,6 +41,7 @@ const Auth = {
       const { rows } = await db.query(text, [decoded.userId]);
       if (!rows[0]) {
         return res.status(400).send({
+          status: res.statusCode,
           message: 'Not authorized',
         });
       }

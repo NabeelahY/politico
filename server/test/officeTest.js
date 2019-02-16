@@ -1,5 +1,6 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
+import jwt from 'jsonwebtoken';
 import app from '../index';
 
 
@@ -11,6 +12,7 @@ describe('Offices', () => {
     it('should get all Political Office', (done) => {
       chai.request(app)
         .get('/api/v1/offices')
+        .set('x-access-token', `${jwt.sign({ userId: 1 }, process.env.SECRET, { expiresIn: '7d' })}`)
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('object');
@@ -22,6 +24,7 @@ describe('Offices', () => {
       const id = 1;
       chai.request(app)
         .get(`/api/v1/offices/${id}`)
+        .set('x-access-token', `${jwt.sign({ userId: 1 }, process.env.SECRET, { expiresIn: '7d' })}`)
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('object');
@@ -29,9 +32,10 @@ describe('Offices', () => {
         });
     });
     it('should not GET an unregistered political office', (done) => {
-      const id = 5;
+      const id = 100;
       chai.request(app)
         .get(`/api/v1/offices/${id}`)
+        .set('x-access-token', `${jwt.sign({ userId: 1 }, process.env.SECRET, { expiresIn: '7d' })}`)
         .end((err, res) => {
           res.should.have.status(404);
           res.body.should.be.a('object');
@@ -49,15 +53,13 @@ describe('Offices', () => {
         .end((err, res) => {
           res.should.have.status(400);
           res.body.should.be.a('object');
-          res.body.should.have.property('status').eql('failed');
-          res.body.should.have.property('error');
-          res.body.error.should.be.a('object');
           done();
         });
     });
     it('should POST a Political Office', (done) => {
       chai.request(app)
         .post('/api/v1/offices')
+        .set('x-access-token', `${jwt.sign({ userId: 1, userRole: true }, process.env.SECRET, { expiresIn: '7d' })}`)
         .send({
           type: 'Chairman',
           name: 'LGA',
