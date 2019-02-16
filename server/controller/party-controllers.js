@@ -66,7 +66,21 @@ class PartyController {
         data: [rows[0]],
       });
     } catch (error) {
-      return res.status(404).send({
+      if (!req.body.name) {
+        return res.status(400).send({
+          status: res.statusCode,
+          message: 'Please enter a name with a minimum of 3 alpha characters.',
+        });
+      }
+
+      if (error.routine === '_bt_check_unique') {
+        return res.status(400).send({
+          status: res.statusCode,
+          message: 'This party name already exists. Please choose another',
+        });
+      }
+      console.log(error.detail.messages);
+      return res.status(400).send({
         status: res.statusCode,
         message: error.detail,
       });
@@ -97,6 +111,12 @@ class PartyController {
         data: response.rows[0],
       });
     } catch (error) {
+      if (error.routine === '_bt_check_unique') {
+        return res.status(400).send({
+          status: res.statusCode,
+          message: 'This party name already exists. Please choose another',
+        });
+      }
       return res.status(400).send({
         status: res.statusCode,
         message: error.detail,

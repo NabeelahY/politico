@@ -9,7 +9,7 @@
     "test": "nyc --reporter=html --reporter=text mocha --timeout 50000 --exit --require babel-core/register  server/test/index.js ",
     "coveralls": "nyc --reporter=lcov --reporter=text-lcov npm test",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "create": "babel-node server/models/table_db createTables",
+    "migrate": "babel-node server/models/table_db createTables",
     "drop": "babel-node server/models/table_db dropTables"
   },
   "keywords": [],

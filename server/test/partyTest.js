@@ -1,7 +1,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
+import jwt from 'jsonwebtoken';
 import app from '../index';
-
 
 chai.use(chaiHttp);
 chai.should();
@@ -11,6 +11,7 @@ describe('Parties', () => {
     it('should get all Political Parties', (done) => {
       chai.request(app)
         .get('/api/v1/parties')
+        .set('x-access-token', `${jwt.sign({ userId: 1 }, process.env.SECRET, { expiresIn: '7d' })}`)
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('object');
@@ -19,9 +20,10 @@ describe('Parties', () => {
     });
 
     it('should GET a single political party', (done) => {
-      const id = 1;
+      const id = 3;
       chai.request(app)
         .get(`/api/v1/parties/${id}`)
+        .set('x-access-token', `${jwt.sign({ userId: 1 }, process.env.SECRET, { expiresIn: '7d' })}`)
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a('object');
@@ -30,9 +32,10 @@ describe('Parties', () => {
     });
 
     it('should not GET an unregistered political party', (done) => {
-      const id = 5;
+      const id = 100;
       chai.request(app)
         .get(`/api/v1/parties/${id}`)
+        .set('x-access-token', `${jwt.sign({ userId: 1 }, process.env.SECRET, { expiresIn: '7d' })}`)
         .end((err, res) => {
           res.should.have.status(404);
           res.body.should.be.a('object');
@@ -43,29 +46,34 @@ describe('Parties', () => {
   });
 
   describe('POST Party', () => {
-    it('it should not POST a Political Party without a name', (done) => {
-      chai.request(app)
-        .post('/api/v1/parties')
-        .send({
-          logoUrl: 'www.image.com/img.jpg',
-        })
-        .end((err, res) => {
-          res.should.have.status(400);
-          res.body.should.have.property('status').eql('failed');
-          res.body.should.have.property('error');
-          res.body.error.should.be.a('object');
-          done();
-        });
-    });
     it('should POST a Political Party', (done) => {
       chai.request(app)
         .post('/api/v1/parties')
+        .set('x-access-token', `${jwt.sign({ userId: 1, userRole: true }, process.env.SECRET, { expiresIn: '7d' })}`)
         .send({
-          name: 'Nigeria Political Party',
-          logoUrl: 'www.image.com/img.jpg',
+          name: 'Party',
+          hqaddress: 'Wuse, Abuja',
+          logourl: 'image',
+          created_at: new Date(),
         })
         .end((err, res) => {
           res.should.have.status(201);
+          res.body.should.be.a('object');
+          done();
+        });
+    });
+
+    it('it should not POST a Political Party without a name', (done) => {
+      chai.request(app)
+        .post('/api/v1/parties')
+        .set('x-access-token', `${jwt.sign({ userId: 1, userRole: true }, process.env.SECRET, { expiresIn: '7d' })}`)
+        .send({
+          hqaddress: 'Wuse, Abuja',
+          logourl: 'www.image.com/img.jpg',
+        })
+        .end((err, res) => {
+          console.log(res.body);
+          res.body.should.have.status(400);
           res.body.should.be.a('object');
           done();
         });
@@ -77,6 +85,7 @@ describe('Parties', () => {
       const id = 1;
       chai.request(app)
         .patch(`/api/v1/parties/${id}/name`)
+        .set('x-access-token', `${jwt.sign({ userId: 1, userRole: true }, process.env.SECRET, { expiresIn: '7d' })}`)
         .send({
           name: 'Political Party Name',
         })
@@ -93,8 +102,23 @@ describe('Parties', () => {
       const id = 1;
       chai.request(app)
         .delete(`/api/v1/parties/${id}`)
+        .set('x-access-token', `${jwt.sign({ userId: 1, userRole: true }, process.env.SECRET, { expiresIn: '7d' })}`)
         .end((err, res) => {
           res.should.have.status(200);
+          res.body.should.be.a('object');
+          done();
+        });
+    });
+  });
+
+  describe('DELETE Party', () => {
+    it('should show an error message if Political Party does not exists', (done) => {
+      const id = 100;
+      chai.request(app)
+        .delete(`/api/v1/parties/${id}`)
+        .set('x-access-token', `${jwt.sign({ userId: 1, userRole: true }, process.env.SECRET, { expiresIn: '7d' })}`)
+        .end((err, res) => {
+          res.should.have.status(404);
           res.body.should.be.a('object');
           done();
         });
