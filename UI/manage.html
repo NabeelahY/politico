@@ -20,24 +20,27 @@
 	</header>
 	<main>
 		<div class="create">
+			<div id="info">
+				<span class="close">&times;</span>
+				<div id="msg"></div>
+			</div>
 			<div class="form1">
-				<form>
-					<h2>Create New Party</h2>
+				<form id="office-form" name="office-form" method="post">
+					<h2>Create New Office</h2>
 					<hr>
-					<input type="text" name="party-name" id="party-name" placeholder="Enter Party Name">
-					<input type="text" name="chairman" id="chairman" placeholder="Enter Chairman's Name">
-					<button>Create</button>
+					<input type="text" name="office" id="office-type" placeholder=" Enter Office Type">
+					<input type="text" name="candidate" id="office-name" placeholder="Enter Office Name">
+					<input type="submit" id="office-btn" value="Create Office">
 				</form>
 			</div>
 			<div class="form2">
-				<form>
-					<h2>Create Political Office</h2>
+				<form id="party-form" name="party-form" method="post">
+					<h2>Create New Party</h2>
 					<hr>
-					<input type="text" name="office" id="office" placeholder=" Enter Political Position">
-					<input type="text" name="candidate" id="candidate" placeholder="Enter Candidate's Name">
-					<input type="text" name="party" id="party" placeholder="Enter Party of Candidate">
-					<input type="email" name="email" id="email" placeholder="Enter Email">
-					<button>Create</button>
+					<input type="text" name="party-name" id="party-name" placeholder="Enter Party Name">
+					<input type="text" name="address" id="address" placeholder="Enter HQ Address">
+					<input type="text" name="logo" id="logo" placeholder="Party Logo">
+					<input type="submit" id="party-btn" value="Create Party">
 				</form>
 			</div>
 		</div>
@@ -48,5 +51,6 @@
 			<p>Copyright &copy; 2019 Politico</p>
 		</div>
 	</footer>
+	<script type="text/javascript" src="./client/manage.js"></script>
 </body>
 </html>

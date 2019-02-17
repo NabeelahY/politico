@@ -1,6 +1,7 @@
 import { Router } from 'express';
-import validate from 'express-validation';
-import validateRequest from '../middleware/validation';
+// import validate from 'express-validation';
+// import validateRequest from '../middleware/validation';
+import middleware from '../middleware/middleware';
 import PartyController from '../controller/party-controllers';
 import OfficeController from '../controller/office-controller';
 import User from '../controller/user';
@@ -11,25 +12,27 @@ import Auth from '../middleware/auth';
 
 const router = Router();
 
+const validateRequest = middleware(true);
+
 router.get('/parties', Auth.verifyToken, PartyController.getAllParties);
 
 router.get('/parties/:id', Auth.verifyToken, PartyController.getSpecificParty);
 
-router.post('/parties', validate(validateRequest.createParty), Auth.verifyRole, PartyController.createNewParty);
+router.post('/parties', validateRequest, Auth.verifyRole, PartyController.createNewParty);
 
-router.patch('/parties/:id/name', validate(validateRequest.updateParty), Auth.verifyRole, PartyController.updatePartyName);
+router.patch('/parties/:id/name', validateRequest, Auth.verifyRole, PartyController.updatePartyName);
 
 router.delete('/parties/:id', Auth.verifyRole, PartyController.deleteParty);
 
-router.post('/offices', validate(validateRequest.createOffice), Auth.verifyRole, OfficeController.createNewOffice);
+router.post('/offices', validateRequest, Auth.verifyRole, OfficeController.createNewOffice);
 
 router.get('/offices', Auth.verifyToken, OfficeController.getAllOffices);
 
 router.get('/offices/:id', Auth.verifyToken, OfficeController.getSpecificOffice);
 
-router.post('/auth/signup', validate(validateRequest.signup), User.createUser);
+router.post('/auth/signup', validateRequest, User.createUser);
 
-router.post('/auth/login', User.userLogin);
+router.post('/auth/login', validateRequest, User.userLogin);
 
 router.post('/office/:id/register', Auth.verifyRole, Candidate.createCandidate);
 

@@ -424,7 +424,7 @@ header .sign-up a{
 .form1 {
 	float: right;
 	padding: 20px;
-	height: 450px;
+	height: 370px;
 }
 .form2{
 	float: left;
@@ -437,20 +437,20 @@ header .sign-up a{
 .form1 input, .form2 input {
 	font-size: 14px;
 	display: block;
-	width: 60%;
+	width: 200px;
 	height: 20px; 
 	margin: 12px auto;
 	padding: 20px;
 }
-.form1 button, .form2 button {
+.form1 input[type='submit'], .form2 input[type='submit'] {
 	display: block;
-	width: 70%;
-	padding: 20px;
-	margin: 12px auto;
+	box-sizing: content-box;
+	width: 220px;
+	padding: 16px 13px;
 	border: none;
 	background-color: #008753;
 	color: #fff;
-	font-size: 16px;
+	font-size: 14px;
 	font-weight: bold;
 }
 

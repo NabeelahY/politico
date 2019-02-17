@@ -82,7 +82,7 @@ class PartyController {
       console.log(error.detail.messages);
       return res.status(400).send({
         status: res.statusCode,
-        message: error.detail,
+        message: error.details,
       });
     }
   }
