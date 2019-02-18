@@ -4,10 +4,7 @@ import _ from 'lodash';
 import Joi from 'joi';
 import Schemas from './validations';
 
-module.exports = (useJoiError = false) => {
-  // useJoiError determines if we should respond with the base Joi error
-  // boolean: defaults to false
-  const _useJoiError = _.isBoolean(useJoiError) && useJoiError;
+module.exports = () => {
 
   // enabled HTTP methods for request data validation
   const _supportedMethods = ['post', 'patch'];
@@ -40,12 +37,15 @@ module.exports = (useJoiError = false) => {
 
             // Custom Error
             const CustomError = {
-              status: 'failed',
-              error: 'Invalid request data. Please review request and try again.',
+              status: 400,
+              message: err.details.map(msg => (msg.message.replace(/['"]/g, '')))[0],
             };
 
             // Send back the JSON error response
-            res.status(400).json(_useJoiError ? JoiError : CustomError);
+            res.status(400).json(err.details.map(msg => (msg.context.key))[0] === 'name'
+              || err.details.map(msg => (msg.context.key))[0] === 'firstname'
+              || err.details.map(msg => (msg.context.key))[0] === 'othername'
+              || err.details.map(msg => (msg.context.key))[0] === 'phonenumber' ? CustomError : JoiError);
           } else {
             // Replace req.body with the data after Joi validation
             req.body = data;
