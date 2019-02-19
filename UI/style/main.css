@@ -404,6 +404,9 @@ header .sign-up a{
 	color: #fff;
 	padding: 8px;
 }
+#political-party button.save, #political-party button.cancel {
+	display: none;
+}
 #lagos-state {
 	display: none;
 }

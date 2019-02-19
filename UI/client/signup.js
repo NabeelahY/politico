@@ -22,7 +22,7 @@ signUp.addEventListener('submit', (e) => {
   const profile = document.getElementById('profile-pic').value;
   const password = document.getElementById('password').value;
 
-  fetch('https://politico-page.herokuapp.com/api/v1/auth/signup', {
+  fetch ('https://politico-page.herokuapp.com/api/v1/auth/signup', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
