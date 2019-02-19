@@ -41,7 +41,7 @@ createParty.addEventListener('submit', (e) => {
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-      if (data.status === 200 || data.status === 201) {
+      if (data.status === 201) {
         message.style.display = 'block';
         document.getElementById('msg').innerHTML = 'Party created successfully';
       } else if (data.message) {
@@ -88,7 +88,7 @@ createOffice.addEventListener('submit', (e) => {
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
-      if (data.status === 200 || data.status === 201) {
+      if (data.status === 201) {
         message.style.display = 'block';
         document.getElementById('msg').innerHTML = 'Office created successfully';
       } else if (data.message) {
