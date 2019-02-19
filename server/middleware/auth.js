@@ -40,7 +40,7 @@ const Auth = {
       const text = 'SELECT * FROM users WHERE id=$1 AND isadmin=true';
       const { rows } = await db.query(text, [decoded.userId]);
       if (!rows[0]) {
-        return res.status(400).send({
+        return res.status(403).send({
           status: res.statusCode,
           message: 'Not authorized',
         });

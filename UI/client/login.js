@@ -1,6 +1,4 @@
 const logIn = document.getElementById('login-form');
-const email = document.getElementById('email');
-const pswd = document.getElementById('pswd');
 const message = document.getElementById('info');
 
 const displayMsg = (errors) => {
@@ -12,8 +10,8 @@ const displayMsg = (errors) => {
 
 logIn.addEventListener('submit', (e) => {
   e.preventDefault();
-  const mail = email.value;
-  const password = pswd.value;
+  const email = document.getElementById('email').value;
+  const pswd = document.getElementById('pswd').value;
 
   fetch('https://politico-page.herokuapp.com/api/v1/auth/login', {
     method: 'POST',
@@ -22,14 +20,18 @@ logIn.addEventListener('submit', (e) => {
       'Accept': 'application/json, */*',
     },
     body: JSON.stringify({
-      'email': mail,
-      'password': password,
+      'email': email,
+      'password': pswd,
     }),
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
-      if (data.status === 200) {
+      if (data.status === 200 && data.data[0].isadmin === true) {
+        message.style.display = 'block';
+        document.getElementById('msg').innerHTML = 'Login successful';
+        localStorage.setItem('token', data.data[1].token);
+        window.location.assign('./admin.html');
+      } else if (data.status === 200 && data.data[0].isadmin === false) {
         message.style.display = 'block';
         document.getElementById('msg').innerHTML = 'Login successful';
         localStorage.setItem('token', data.data[1].token);

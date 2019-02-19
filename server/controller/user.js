@@ -16,19 +16,6 @@ class User {
   }
 
   static async createUser(req, res) {
-    console.log(req.body);
-    if (!req.body.email || !req.body.password) {
-      return res.status(400).send({
-        status: res.statusCode,
-        message: 'Some values are missing',
-      });
-    }
-    if (!Helper.isValidEmail(req.body.email)) {
-      return res.status(400).send({
-        status: res.statusCode,
-        message: 'Please enter a valid email address',
-      });
-    }
     const hashPassword = Helper.hashPassword(req.body.password);
 
     const createQuery = `INSERT INTO
@@ -70,18 +57,6 @@ class User {
   }
 
   static async userLogin(req, res) {
-    if (!req.body.email || !req.body.password) {
-      return res.status(400).send({
-        status: res.statusCode,
-        message: 'Please enter email and password',
-      });
-    }
-    if (!Helper.isValidEmail(req.body.email)) {
-      return res.status(400).send({
-        status: res.statusCode,
-        message: 'Please enter a valid email address',
-      });
-    }
     const text = 'SELECT * FROM users WHERE email = $1';
     try {
       const { rows } = await db.query(text, [req.body.email]);
