@@ -1,6 +1,5 @@
-const signUp = document.getElementById('signup-form');
+const logIn = document.getElementById('login-form');
 const message = document.getElementById('info');
-const close = document.getElementsByClassName('close')[0];
 
 const displayMsg = (errors) => {
   errors.forEach((error) => {
@@ -9,40 +8,32 @@ const displayMsg = (errors) => {
   });
 };
 
-close.onclick = () => {
-  message.style.display = 'none';
-};
-
-signUp.addEventListener('submit', (e) => {
+logIn.addEventListener('submit', (e) => {
   e.preventDefault();
-  const firstName = document.getElementById('fname').value;
-  const otherName = document.getElementById('oname').value;
   const email = document.getElementById('email').value;
-  const phone = document.getElementById('phone-no').value;
-  const profile = document.getElementById('profile-pic').value;
-  const password = document.getElementById('password').value;
+  const pswd = document.getElementById('pswd').value;
 
-  fetch ('https://politico-page.herokuapp.com/api/v1/auth/signup', {
+  fetch('https://politico-page.herokuapp.com/api/v1/auth/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json, */*',
     },
     body: JSON.stringify({
-      'firstname': firstName,
-      'othername': otherName,
       'email': email,
-      'phonenumber': phone,
-      'passporturl': profile,
-      'password': password,
+      'password': pswd,
     }),
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
-      if (data.status === 201) {
+      if (data.status === 200 && data.data[0].isadmin === true) {
         message.style.display = 'block';
-        document.getElementById('msg').innerHTML = 'Registration successful';
+        document.getElementById('msg').innerHTML = 'Login successful';
+        localStorage.setItem('token', data.data[1].token);
+        window.location.assign('./admin.html');
+      } else if (data.status === 200 && data.data[0].isadmin === false) {
+        message.style.display = 'block';
+        document.getElementById('msg').innerHTML = 'Login successful';
         localStorage.setItem('token', data.data[1].token);
         window.location.assign('./home.html');
       } else if (data.message) {

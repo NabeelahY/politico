@@ -10,11 +10,15 @@
 </head>
 <body>
 	<header>
-			<a href="index.html" class="logo"><span>P</span>olitico</a>
-			<button class="sign-up"><a href="sign-up.html">Sign up</a></button>
+		<a href="index.html" class="logo"><span>P</span>olitico</a>
+		<button class="sign-up"><a href="sign-up.html">Sign up</a></button>
 	</header>
 
 	<main>
+		<div id="info">
+			<span class="close">&times;</span>
+			<div id="msg"></div>
+		</div>
 		<div class="container">
 			<div class="content">
 				The elections is a chance for every Nigerian citizen to make our nation great again. <br><br>
@@ -22,23 +26,22 @@
 			</div>
 
 			<div class="sign-in">
-				<form>
-					<h2>Sign In</h2>
+				<form id="login-form" name="login-form" method="post">
+					<h2>Login</h2>
 					<hr>
-					<input type="text" name="id-no" id="id-no" placeholder=" Enter Voter's Id">
+					<input type="email" name="email" id="email" placeholder=" Enter Email">
 					<input type="password" name="password" id="pswd" placeholder="Enter Password">
-					<button><a href="home.html">Sign In</a></button>
+					<input type="submit" id="btn" value="Sign In">
 					<p><a href="password.html">Forgot Password?</a></p>
 				</form>
-				
 			</div>
 		</div>
 	</main>
 	<footer>
 		<div class="footer">
 			<p>Copyright &copy; 2019 Politico</p>
-			<p><a href="admin-signin.html">Manage</a></p>
 		</div>
 	</footer>
+	<script type="text/javascript" src="./client/login.js"></script>
 </body>
 </html>
