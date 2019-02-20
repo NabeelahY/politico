@@ -121,7 +121,48 @@ partyTable.addEventListener('click', (e) => {
       .then((data) => {
         if (data.status === 200) {
           message.style.display = 'block';
-          document.getElementById('msg').innerHTML = 'Name updated';
+          document.getElementById('msg').innerHTML = 'Party name updated';
+        } else if (data.message) {
+          const obj = data.message;
+          const errors = Object.values(obj);
+          displayMsg(errors);
+        } else {
+          const details = data.details.map(msg => (msg.messages));
+          details.forEach((msg) => {
+            message.style.display = 'block';
+            document.getElementById('msg').innerHTML += `${msg}`;
+          });
+        }
+      })
+      .catch((err) => {
+        if (err) {
+          message.style.display = 'block';
+          document.getElementById('msg').innerHTML = 'Not connected. Check your connection and try again.';
+        }
+      });
+  }
+});
+
+partyTable.addEventListener('click', (e) => {
+  if (e.target && e.target.matches('button.delete')) {
+    e.preventDefault();
+    const trow = e.target.closest('tr');
+    const id = trow.getAttribute('row_id');
+    fetch (`https://politico-page.herokuapp.com/api/v1/parties/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json, */*',
+        'x-access-token': token,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === 200) {
+          message.style.display = 'block';
+          document.getElementById('msg').innerHTML = 'Party deleted';
+          const index = trow.rowIndex;
+          document.getElementById('political-party').deleteRow(index);
         } else if (data.message) {
           const obj = data.message;
           const errors = Object.values(obj);
