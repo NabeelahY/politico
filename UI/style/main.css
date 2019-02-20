@@ -406,7 +406,17 @@ header .sign-up a{
 }
 #political-party button.save, #political-party button.cancel {
 	display: none;
+	margin: 5px;
+    padding: 10px;
+	box-sizing: border-box;
 }
+div.row_data {
+	padding: 10px;
+}
+.focus {
+	border: 2px solid #008753;
+}
+	
 #lagos-state {
 	display: none;
 }
