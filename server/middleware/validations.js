@@ -12,7 +12,7 @@ const createParty = Joi.object().keys({
 });
 
 const updateParty = Joi.object().keys({
-  name: Joi.string().trim().regex(/^[a-z]+$/i).min(3)
+  name: Joi.string().regex(/^[a-z]+/i).min(3).trim()
     .required()
     .error(() => 'Name is required and should have a minimum of 3 alphabetic characters.'),
 });
