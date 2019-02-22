@@ -1,0 +1,942 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "version": "1.0",
+    "title": "Politico App",
+    "description": "Politica is an app that allows users know about future political aspirants,their parties and the offices they vying for. Users can also vote for their preferred candidate.",
+    "contact": {
+      "name": "Nabeelah",
+      "email": "nabeelahyousuph@gmail.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://politico-page.herokuapp.com",
+      "description": "Heroku server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Users",
+      "description": "User's account"
+    },
+    {
+      "name": "Parties",
+      "description": "Political parties"
+    },
+    {
+      "name": "Offices",
+      "description": "Political offices"
+    },
+    {
+      "name": "Candidates",
+      "description": "Political candidates"
+    },
+    {
+      "name": "Vote",
+      "description": "Vote for Political candidates"
+    }
+  ],
+  "paths": {
+    "/api/v1/auth/signup": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create a user",
+        "description": "User registration",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Registration successful",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Registration unsuccessful",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/auth/login": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "User login",
+        "description": "User login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login successful",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Registration unsuccessful",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/parties": {
+      "post": {
+        "security": [
+          {
+            "UserSecurity": []
+          }
+        ],
+        "tags": [
+          "Parties"
+        ],
+        "summary": "Create new party",
+        "description": "Create new political parties",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Parties"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Party created",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartiesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Registration unsuccessful",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "security": [
+          {
+            "UserSecurity": []
+          }
+        ],
+        "tags": [
+          "Parties"
+        ],
+        "summary": "Get all parties",
+        "description": "Get all political parties",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartiesResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/parties/{party-id}/name": {
+      "patch": {
+        "security": [
+          {
+            "UserSecurity": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "party-id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "tags": [
+          "Parties"
+        ],
+        "summary": "Create new party",
+        "description": "Create new political parties",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Party name updated",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          },
+                          "hqaddress": {
+                            "type": "string"
+                          },
+                          "logourl": {
+                            "type": "string"
+                          },
+                          "created_at": {
+                            "type": "string"
+                          },
+                          "updated_at": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/parties/{party-id}": {
+      "get": {
+        "security": [
+          {
+            "UserSecurity": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "party-id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "tags": [
+          "Parties"
+        ],
+        "summary": "Get specific party",
+        "description": "Get specific political party",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/PartiesResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "security": [
+          {
+            "UserSecurity": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "party-id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "tags": [
+          "Parties"
+        ],
+        "summary": "Delete specific party",
+        "description": "Delete specific political party",
+        "responses": {
+          "200": {
+            "description": "Party has been deleted",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "integer"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "message": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Failed to delete party",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/offices": {
+      "post": {
+        "security": [
+          {
+            "UserSecurity": []
+          }
+        ],
+        "tags": [
+          "Offices"
+        ],
+        "summary": "Create new office",
+        "description": "Create new political office",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Offices"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Office created",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/OfficeResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Registration unsuccessful",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": [
+          "Offices"
+        ],
+        "summary": "Get all offices",
+        "description": "Get all political offices",
+        "responses": {
+          "200": {
+            "description": "Office created",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/OfficeResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Registration unsuccessful",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/offices/{office-id}": {
+      "get": {
+        "security": [
+          {
+            "UserSecurity": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "office-id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "tags": [
+          "Offices"
+        ],
+        "summary": "Get specific party",
+        "description": "Get specific political office",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/OfficeResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/office/{office-id}/register": {
+      "post": {
+        "security": [
+          {
+            "UserSecurity": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "office-id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "tags": [
+          "Candidates"
+        ],
+        "summary": "Register candidate",
+        "description": "Register political aspirant",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Candidates"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Candidate registered successfully",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/CandidateResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Registration unsuccessful",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/votes": {
+      "post": {
+        "security": [
+          {
+            "UserSecurity": []
+          }
+        ],
+        "tags": [
+          "Vote"
+        ],
+        "summary": "Vote for candidate",
+        "description": "Vote for a political candidate",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Vote"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Voted successfully",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoteResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Voting failed",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/office/{office-id}/result": {
+      "get": {
+        "security": [
+          {
+            "UserSecurity": []
+          }
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "office-id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "tags": [
+          "Vote"
+        ],
+        "summary": "Election Result",
+        "description": "Election Result",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/VoteResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error",
+            "content": {
+              "text/html; charset=utf-8": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "firstname": {
+            "type": "string"
+          },
+          "othername": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phonenumber": {
+            "type": "string"
+          },
+          "passporturl": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
+      "UserResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "firstname": {
+                  "type": "string"
+                },
+                "othername": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "phonenumber": {
+                  "type": "string"
+                },
+                "passporturl": {
+                  "type": "string"
+                },
+                "isadmin": {
+                  "type": "boolean"
+                },
+                "token": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "Parties": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "hqaddress": {
+            "type": "string"
+          },
+          "logourl": {
+            "type": "string"
+          }
+        }
+      },
+      "PartiesResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "hqaddress": {
+                  "type": "string"
+                },
+                "logourl": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Offices": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "OfficeResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Candidates": {
+        "type": "object",
+        "properties": {
+          "office": {
+            "type": "integer"
+          },
+          "party": {
+            "type": "integer"
+          },
+          "candidate": {
+            "type": "integer"
+          }
+        }
+      },
+      "CandidateResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "office": {
+                  "type": "string"
+                },
+                "party": {
+                  "type": "string"
+                },
+                "candidate": {
+                  "type": "string"
+                },
+                "created_at": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Vote": {
+        "type": "object",
+        "properties": {
+          "created_by": {
+            "type": "integer"
+          },
+          "office": {
+            "type": "integer"
+          },
+          "candidate": {
+            "type": "integer"
+          }
+        }
+      },
+      "VoteResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "integer"
+                },
+                "office": {
+                  "type": "integer"
+                },
+                "candidate": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      },
+      "VoteResult": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "created_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "integer"
+                },
+                "office": {
+                  "type": "integer"
+                },
+                "candidate": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "UserSecurity": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-access-token"
+      }
+    }
+  },
+  "security": [
+    {
+      "UserSecurity": []
+    }
+  ]
+}

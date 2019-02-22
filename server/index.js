@@ -5,6 +5,8 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import expressValidation from 'express-validation';
 import 'babel-polyfill';
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocument from './swagger.json';
 import router from './routes/routes';
 
 dotenv.config();
@@ -31,6 +33,8 @@ app.use(bodyParser.json());
     message: 'Welcome to Politico!',
   });
 });*/
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use('/api/v1', router);
 

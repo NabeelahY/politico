@@ -5,7 +5,7 @@ class User {
   static userDetails(detail) {
     return {
       id: detail.id,
-      fisrtname: detail.firstname,
+      firstname: detail.firstname,
       othername: detail.othername,
       email: detail.email,
       phonenumber: detail.phonenumber,
@@ -63,13 +63,13 @@ class User {
       if (!rows[0]) {
         return res.status(400).send({
           status: res.statusCode,
-          message: 'The credentials you provided is incorrect',
+          message: 'Invalid email/password supplied',
         });
       }
       if (!Helper.comparePassword(rows[0].password, req.body.password)) {
         return res.status(400).send({
           status: res.statusCode,
-          message: 'The credentials you provided is incorrect',
+          message: 'Invalid email/password supplied',
         });
       }
       const token = Helper.generateToken(rows[0].id, rows[0].isadmin);
