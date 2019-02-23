@@ -1,6 +1,7 @@
 import { Router } from 'express';
-// import validate from 'express-validation';
-// import validateRequest from '../middleware/validation';
+import multer from 'multer';
+import cloudinary from 'cloudinary';
+import cloudinaryStorage from 'multer-storage-cloudinary';
 import middleware from '../middleware/middleware';
 import PartyController from '../controller/party-controllers';
 import OfficeController from '../controller/office-controller';
@@ -9,8 +10,14 @@ import Candidate from '../controller/candidate-controller';
 import VoteController from '../controller/vote';
 import Auth from '../middleware/auth';
 
-
 const router = Router();
+
+const storageCloud = cloudinaryStorage({
+  cloudinary: cloudinary,
+  folder: 'demo',
+});
+
+const upload = multer({ storage: storageCloud });
 
 const validateRequest = middleware(true);
 
@@ -18,7 +25,7 @@ router.get('/parties', Auth.verifyToken, PartyController.getAllParties);
 
 router.get('/parties/:id', Auth.verifyToken, PartyController.getSpecificParty);
 
-router.post('/parties', validateRequest, Auth.verifyRole, PartyController.createNewParty);
+router.post('/parties', upload.single('logourl'), validateRequest, Auth.verifyRole, PartyController.createNewParty);
 
 router.patch('/parties/:id/name', validateRequest, Auth.verifyRole, PartyController.updatePartyName);
 
@@ -30,7 +37,7 @@ router.get('/offices', Auth.verifyToken, OfficeController.getAllOffices);
 
 router.get('/offices/:id', Auth.verifyToken, OfficeController.getSpecificOffice);
 
-router.post('/auth/signup', validateRequest, User.createUser);
+router.post('/auth/signup', upload.single('passporturl'), validateRequest, User.createUser);
 
 router.post('/auth/login', validateRequest, User.userLogin);
 

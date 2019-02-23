@@ -27,7 +27,7 @@ class User {
       req.body.othername,
       req.body.email,
       req.body.phonenumber,
-      req.body.passporturl,
+      req.file.url,
       hashPassword,
       req.body.isadmin || 'false',
       new Date(),

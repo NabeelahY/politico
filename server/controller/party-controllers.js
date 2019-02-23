@@ -1,5 +1,6 @@
 import db from '../models/db';
 
+
 class PartyController {
   // Get all partiess
   static async getAllParties(req, res) {
@@ -55,12 +56,13 @@ class PartyController {
     const newParty = [
       req.body.name,
       req.body.hqaddress,
-      req.body.logourl,
+      req.file.url,
       new Date(),
     ];
 
     try {
       const { rows } = await db.query(populate, newParty);
+      console.log(rows[0]);
       return res.status(201).send({
         status: res.statusCode,
         data: [rows[0]],
@@ -80,7 +82,7 @@ class PartyController {
         });
       }
       console.log(error.detail.messages);
-      return res.status(400).send({
+      return res.status(400 || 500).send({
         status: res.statusCode,
         message: error.details,
       });

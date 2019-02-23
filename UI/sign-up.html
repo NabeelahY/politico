@@ -16,12 +16,13 @@
 			<img src="img/naija.jpg" alt="flag">
 			<h1>Sign Up</h1>
 			<hr>
-			<form id="signup-form" name="signup-form" method="post">
-				<input type="text" name="name" id="fname" placeholder="First Name">
-				<input type="text" name="name" id="oname" placeholder="Other Name">
+			<form id="signup-form" name="signup-form" method="post" enctype="multipart/form-data">
+				<input type="text" name="firstname" id="fname" placeholder="First Name">
+				<input type="text" name="othername" id="oname" placeholder="Other Name">
 				<input type="email" name="email" id="email" placeholder="Your Email">
-				<input type="text" name="text" id="phone-no" placeholder="Phone Number">
-				<input type="text" name="profile-pic" id="profile-pic" placeholder="Profile Picture link">
+				<input type="text" name="phonenumber" id="phone-no" placeholder="Phone Number">
+				<label for="passporturl">Profile Picture:</label>
+				<input type="file" accept="image/*" name="passporturl" id="profile-pic" placeholder="Profile Picture">
 				<input type="password" name="password" id="password" placeholder="Your Password">
 				<input type="submit" id="btn" value="Sign Up">
 			</form>

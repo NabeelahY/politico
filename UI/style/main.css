@@ -251,7 +251,18 @@ header .sign-up a{
 	margin-bottom: 12px;
 	padding: 16px 13px;
 }
-
+#signup-form input[type='file'] {
+	display: block;
+	box-sizing: content-box;
+	height: 15px; 
+	width: 170px;
+	padding: 16px 13px;
+	border: 2px solid #008753;
+	color: #ccc;
+	font-size: 14px
+	margin-bottom: 12px;
+	padding: 16px 13px;
+}
 #signup-form input[type='submit'] {
 	display: block;
 	box-sizing: content-box;
@@ -454,6 +465,25 @@ div.row_data {
 	height: 20px; 
 	margin: 12px auto;
 	padding: 20px;
+}
+
+.form2 label {
+	display: block;
+	margin:  auto;
+	width: 250px;
+	box-sizing: content-box;
+	font-size: 15px;
+}
+
+.form2 input[type='file'] {
+	display: block;
+	box-sizing: content-box;
+	width: 220px;
+	padding: 16px 13px;
+	border: 2px solid #008753;
+	color: #ccc;
+	font-size: 14px;
+	font-weight: bold;
 }
 .form1 input[type='submit'], .form2 input[type='submit'] {
 	display: block;

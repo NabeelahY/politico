@@ -22,8 +22,6 @@ function getParties() {
   fetch('https://politico-page.herokuapp.com/api/v1/parties', {
     method: 'GET',
     headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json, */*',
       'x-access-token': token,
     },
   })
@@ -34,7 +32,7 @@ function getParties() {
         let cellRow = '';
         data.data.forEach((trow) => {
           cellRow += `<tr row_id = "${trow.id}">
-          <td>${trow.logourl}</td>
+          <td><img src='${trow.logourl}'></td>
           <td><div class="row_data" col_name="name">${trow.name}</div></td>
            <td>
             <button class="edit" row_id = "${trow.id}">Edit</button>
