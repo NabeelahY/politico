@@ -15,27 +15,14 @@ close.onclick = () => {
 
 signUp.addEventListener('submit', (e) => {
   e.preventDefault();
-  const firstName = document.getElementById('fname').value;
-  const otherName = document.getElementById('oname').value;
-  const email = document.getElementById('email').value;
-  const phone = document.getElementById('phone-no').value;
-  const profile = document.getElementById('profile-pic').value;
-  const password = document.getElementById('password').value;
+  const data = new FormData(signUp);
 
   fetch ('https://politico-page.herokuapp.com/api/v1/auth/signup', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
       'Accept': 'application/json, */*',
     },
-    body: JSON.stringify({
-      'firstname': firstName,
-      'othername': otherName,
-      'email': email,
-      'phonenumber': phone,
-      'passporturl': profile,
-      'password': password,
-    }),
+    body: data,
   })
     .then((res) => res.json())
     .then((data) => {

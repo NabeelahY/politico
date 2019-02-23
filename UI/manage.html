@@ -34,12 +34,13 @@
 				</form>
 			</div>
 			<div class="form2">
-				<form id="party-form" name="party-form" method="post">
+				<form id="party-form" name="party-form" method="post" enctype="multipart/form-data">
 					<h2>Create New Party</h2>
 					<hr>
-					<input type="text" name="party-name" id="party-name" placeholder="Enter Party Name">
-					<input type="text" name="address" id="address" placeholder="Enter HQ Address">
-					<input type="text" name="logo" id="logo" placeholder="Party Logo">
+					<input type="text" name="name" id="party-name" placeholder="Enter Party Name">
+					<input type="text" name="hqaddress" id="address" placeholder="Enter HQ Address">
+					<label for="logo">Party Logo:</label>
+					<input type="file" accept="image/*" name="logourl" id="logo" placeholder="Party Logo">
 					<input type="submit" id="party-btn" value="Create Party">
 				</form>
 			</div>
