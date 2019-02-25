@@ -18,6 +18,10 @@
 		</nav>
 	</header>
 	<main>
+		<div id="info">
+			<span class="close">&times;</span>
+			<div id="msg"></div>
+		</div>
 		<div id="dash">
 			<h2>Political Parties</h2>
 			<div class="table">
@@ -25,60 +29,10 @@
 				<input type="text" name="search" id="search" placeholder="Search for parties">
 				<table id="political-party">
 					<tr>
-						<th>Political Party Icon</th>
-						<th>Name</th>
-						<th>Acronym</th>
+						<th>Logo</th>
+						<th>Political Party</th>
 					</tr>
-					<tr>
-						<td><img src="img/AAL.jpg"></td>
-						<td>Action Allaince</td>
-						<td>AA</td>
-					</tr>
-					<tr>
-						<td><img src="img/ANN.png"></td>
-						<td>Allaince for a New Nigeria</td>
-						<td>ANN</td>
-					</tr>
-					<tr>
-						<td><img src="img/APC.png"></td>
-						<td>All Progressive Congress</td>
-						<td>APC</td>
-					</tr>
-					<tr>
-						<td><img src="img/CNP.png"></td>
-						<td>Change Nigeria Party</td>
-						<td>CNP</td>
-					</tr>
-					<tr>
-						<td><img src="img/DPP.png"></td>
-						<td>Democratic People's Party</td>
-						<td>DPP</td>
-					</tr>
-					<tr>
-						<td><img src="img/KP.jpg"></td>
-						<td>Kowa Party</td>
-						<td>KP</td>
-					</tr>
-					<tr>
-						<td><img src="img/PDP.jpg"></td>
-						<td>People's Democratic Party</td>
-						<td>PDP</td>
-					</tr> 
-					<tr>
-						<td><img src="img/SNP.png"></td>
-						<td>Sustainable National Party</td>
-						<td>SNP</td>
-					</tr> 
-					<tr>
-						<td><img src="img/UPC.jpg"></td>
-						<td>United People's Congress</td>
-						<td>UPC</td>
-					</tr> 
-					<tr>
-						<td><img src="img/YPP.png"></td>
-						<td>Young Progressive Party</td>
-						<td>YPP</td>
-					</tr> 
+					<tbody id="party-table"></tbody>
 				</table>
 			</div>
 		</div>
@@ -89,6 +43,7 @@
 			<p>Copyright &copy; 2019 Politico</p>
 		</div>
 	</footer>
+	<script type="text/javascript" src="./client/usersparties.js"></script>
 	<script type="text/javascript" src="script/main.js"></script>
 </body>
 </html>
