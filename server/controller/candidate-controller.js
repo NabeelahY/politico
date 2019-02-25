@@ -39,6 +39,32 @@ class Candidate {
       });
     }
   }
+
+  static async getCandidates(req, res) {
+    const allCandidates = `SELECT candidates.id, offices.office_name, offices.type, parties.party_name, parties.logourl, users.firstname, users.othername, users.passporturl 
+                           FROM candidates 
+                           INNER JOIN users on users.id = candidates.candidate 
+                           INNER JOIN parties on parties.id = candidates.party
+                           INNER JOIN offices on offices.id = candidates.office`;
+    try {
+      const { rows, rowCount } = await db.query(allCandidates);
+      if (rowCount < 1) {
+        return res.status(404).send({
+          status: res.statusCode,
+          message: 'No candidates found',
+        });
+      }
+      return res.status(200).send({
+        status: res.statusCode,
+        data: [...rows],
+      });
+    } catch (error) {
+      return res.status(400).send({
+        status: res.statusCode,
+        message: error.detail,
+      });
+    }
+  }
 }
 
 export default Candidate;

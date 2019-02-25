@@ -2,10 +2,6 @@ const token = localStorage.getItem('token');
 const partyTable = document.getElementById('party-table');
 const message = document.getElementById('info');
 const close = document.getElementsByClassName('close')[0];
-let edit = document.getElementsByClassName('edit');
-let tdata = document.getElementsByClassName('row_data');
-let save = document.getElementsByClassName('save');
-const cancel = document.getElementsByClassName('cancel');
 
 const displayMsg = (errors) => {
   errors.forEach((error) => {
@@ -33,7 +29,7 @@ function getParties() {
         data.data.forEach((trow) => {
           cellRow += `<tr row_id = "${trow.id}">
           <td><img src='${trow.logourl}'></td>
-          <td><div class="row_data" col_name="name">${trow.name}</div></td>
+          <td><div class="row_data" col_name="party_name">${trow.party_name}</div></td>
            <td>
             <button class="edit" row_id = "${trow.id}">Edit</button>
             <button class="save" row_id = "${trow.id}">Save</button>
@@ -112,7 +108,7 @@ partyTable.addEventListener('click', (e) => {
         'x-access-token': token,
       },
       body: JSON.stringify({
-        'name': arr.name,
+        'party_name': arr.party_name,
       }),
     })
       .then((res) => res.json())

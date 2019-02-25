@@ -50,11 +50,11 @@ class PartyController {
   // Create new party
 
   static async createNewParty(req, res) {
-    const populate = `INSERT INTO parties(name, hqaddress, logourl, created_at) 
+    const populate = `INSERT INTO parties(party_name, hqaddress, logourl, created_at) 
     VALUES($1, $2, $3, $4) returning *`;
 
     const newParty = [
-      req.body.name,
+      req.body.party_name,
       req.body.hqaddress,
       req.file.url,
       new Date(),
@@ -68,7 +68,7 @@ class PartyController {
         data: [rows[0]],
       });
     } catch (error) {
-      if (!req.body.name) {
+      if (!req.body.party_name) {
         return res.status(400).send({
           status: res.statusCode,
           message: 'Please enter a name with a minimum of 3 alpha characters.',
@@ -93,7 +93,7 @@ class PartyController {
 
   static async updatePartyName(req, res) {
     const findParty = 'SELECT * FROM parties WHERE id=$1';
-    const updateParty = 'UPDATE parties SET name=$1, updated_at=$2 WHERE id=$3 returning *';
+    const updateParty = 'UPDATE parties SET party_name=$1, updated_at=$2 WHERE id=$3 returning *';
     try {
       const { rows } = await db.query(findParty, [req.params.id]);
       if (!rows[0]) {
@@ -103,7 +103,7 @@ class PartyController {
         });
       }
       const values = [
-        req.body.name || rows[0].name,
+        req.body.party_name || rows[0].party_name,
         new Date(),
         req.params.id,
       ];

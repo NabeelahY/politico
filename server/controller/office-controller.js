@@ -49,12 +49,12 @@ class OfficeController {
   // Create new office
 
   static async createNewOffice(req, res) {
-    const populate = `INSERT INTO offices(type, name, created_at) 
+    const populate = `INSERT INTO offices(type, office_name, created_at) 
     VALUES($1, $2, $3) returning *`;
 
     const newOffice = [
       req.body.type,
-      req.body.name,
+      req.body.office_name,
       new Date(),
     ];
 

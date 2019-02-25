@@ -15,7 +15,7 @@ const createTables = () => {
   const tableQuery = `CREATE TABLE IF NOT EXISTS
       parties(
         id SERIAL PRIMARY KEY,
-        name VARCHAR(128) NOT NULL UNIQUE,
+        party_name VARCHAR(128) NOT NULL UNIQUE,
         hqaddress VARCHAR(128) NOT NULL,
         logourl VARCHAR(128) NOT NULL,
         created_at TIMESTAMP,
@@ -25,7 +25,7 @@ const createTables = () => {
       offices(
         id SERIAL PRIMARY KEY,
         type VARCHAR(128) NOT NULL,
-        name VARCHAR(128) NOT NULL UNIQUE,
+        office_name VARCHAR(128) NOT NULL UNIQUE,
         created_at TIMESTAMP
       );
       CREATE TABLE IF NOT EXISTS

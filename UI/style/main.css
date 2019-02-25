@@ -593,9 +593,7 @@ fieldset .describe{
 #president{
 	display: none;
 }
-#governor{
-	display: none;
-}
+
 .vote-wrapper button{
 	display: block;
 	margin: 10px auto;
