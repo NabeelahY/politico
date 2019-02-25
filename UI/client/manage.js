@@ -72,7 +72,7 @@ createOffice.addEventListener('submit', (e) => {
       'x-access-token': token,
     },
     body: JSON.stringify({
-      'name': officeName,
+      'office_name': officeName,
       'type': officeType,
     }),
   })

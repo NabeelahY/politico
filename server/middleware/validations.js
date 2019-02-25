@@ -2,7 +2,7 @@ import Joi from 'joi';
 
 
 const createParty = Joi.object().keys({
-  name: Joi.string().trim().regex(/^[a-z]+/i).min(3)
+  party_name: Joi.string().trim().regex(/^[a-z]+/i).min(3)
     .required()
     .error(() => 'Name is required and should have a minimum of 3 alphabetic characters.'),
   hqaddress: Joi.string().trim().min(3)
@@ -10,7 +10,7 @@ const createParty = Joi.object().keys({
 });
 
 const updateParty = Joi.object().keys({
-  name: Joi.string().regex(/^[a-z]+/i).min(3).trim()
+  party_name: Joi.string().regex(/^[a-z]+/i).min(3).trim()
     .required()
     .error(() => 'Name is required and should have a minimum of 3 alphabetic characters.'),
 });
@@ -18,7 +18,7 @@ const updateParty = Joi.object().keys({
 const createOffice = Joi.object().keys({
   type: Joi.string().trim().min(3)
     .required(),
-  name: Joi.string().trim().regex(/^[a-z]+/i).min(3)
+  office_name: Joi.string().trim().regex(/^[a-z]+/i).min(3)
     .required()
     .error(() => 'Name is required and should have a minimum of 3 alphabetic characters.'),
 });
