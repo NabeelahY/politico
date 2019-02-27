@@ -7,7 +7,7 @@ class VoteController {
     VALUES($1, $2, $3, $4) returning *`;
     const voteCandidate = [
       new Date(),
-      req.body.created_by,
+      req.user.id,
       req.body.office,
       req.body.candidate,
     ];

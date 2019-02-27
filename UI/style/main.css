@@ -672,17 +672,23 @@ fieldset .describe{
 	padding: 10px;
 	color: #008753;
 }
-.user-name {
-	float: left;
-	padding: 20px;
-	margin:10px;
-	width: 40%;
+.top h2 {
+	text-align: center;
+	padding: 5px;
 }
-.details {
-	padding: 20px;
-	margin: 10px;
+.user-pic img{
+	display: block;
+	padding: 10px;
+	margin: 0 auto;
+}
+.user-details {
+	padding: 10px;
+	margin: 0 auto;
 	width: 40%;
 	line-height: 2em;
+}
+.user-details p {
+	text-align: center;
 }
 .history{
 	width: 80%;

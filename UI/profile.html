@@ -5,56 +5,54 @@
 	<title>Politico | Profile</title>        
 	<link rel="stylesheet" href="style/main.css">
 	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<meta http-equiv="X-UA-Compatible" content="IE=8">
 </head>
 
 <body>
 	<header>
-			<a href="index.html" class="logo"><span>P</span>olitico</a>
-			<nav class="navbar">
-				<ul>
-					<li><a href="home.html">HOME</a></li>
-					<li><a href="signout.html">SIGNOUT</a></li>
-				</ul>
-			</nav>
+		<a href="index.html" class="logo"><span>P</span>olitico</a>
+		<nav class="navbar">
+			<ul>
+				<li><a href="home.html">HOME</a></li>
+				<li><a href="signout.html">SIGNOUT</a></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+<main>
+	<div id="info">
+		<span class="close">&times;</span>
+		<div id="msg"></div>
+	</div>
+	
+	<section class="top"></section>	
+
+		<div class="table history">
+			<h2>Voting History</h2>
+			<table id="political-party">
+				<tr>
+					<th>Office</th>
+					<th>Candidate</th>
+					<th>Party</th>
+				</tr>
+				<tr>
+					<td>President</td>
+					<td>Muhammed Buhari</td>
+					<td>All Progressive Congress</td>
+				</tr>
+				<tr>
+					<td>Governor</td>
+					<td>Jimi Agbaje</td>
+					<td>People's Democratic Party</td>
+				</tr>
+			</table>
 		</div>
-	</header>
-	<main>
-		<section class="top">
-			<div class="user-name">
-				<img src="img/user.png">
-				<h2>Welcome "User"</h2>
-			</div>
-			<div class="details">
-				<p><strong>Email:</strong>user@email.com <br>
-				   <strong>Phone Number:</strong>123456789<br>
-				   <strong>Voter's ID:</strong>123HGJU465JHS987
-				</p>
-			</div>
-		</section>			
-			<div class="table history" >
-				<h2>Voting History</h2>
-				<table id="political-party">
-					<tr>
-						<th>Office</th>
-						<th>Candidate</th>
-						<th>Party</th>
-					</tr>
-					<tr>
-						<td>President</td>
-						<td>Muhammed Buhari</td>
-						<td>All Progressive Congress</td>
-					</tr>
-					<tr>
-						<td>Governor</td>
-						<td>Jimi Agbaje</td>
-						<td>People's Democratic Party</td>
-					</tr>
-				</table>
 	</main>
 	<footer>
 		<div class="footer">
 			<p>Copyright &copy; 2019 Politico</p>
 		</div>
 	</footer>
+	<script type="text/javascript" src="./client/user.js"></script>
 </body>
 </html>
