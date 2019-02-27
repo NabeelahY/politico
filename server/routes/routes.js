@@ -41,6 +41,8 @@ router.post('/auth/signup', upload.single('passporturl'), validateRequest, User.
 
 router.post('/auth/login', validateRequest, User.userLogin);
 
+router.get('/profile', Auth.verifyToken, User.getSpecificUser);
+
 router.post('/office/:id/register', Auth.verifyRole, Candidate.createCandidate);
 
 router.get('/candidates', Auth.verifyToken, Candidate.getCandidates);

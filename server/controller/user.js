@@ -56,6 +56,28 @@ class User {
     }
   }
 
+  static async getSpecificUser(req, res) {
+    const findParty = 'SELECT * FROM users WHERE id = $1';
+    try {
+      const { rows } = await db.query(findParty, [req.user.id]);
+      if (!rows[0]) {
+        return res.status(404).send({
+          status: res.statusCode,
+          message: 'User not found',
+        });
+      }
+      return res.status(200).send({
+        status: res.statusCode,
+        data: User.userDetails(rows[0]),
+      });
+    } catch (error) {
+      return res.status(400).send({
+        status: res.statusCode,
+        message: error.detail,
+      });
+    }
+  }
+
   static async userLogin(req, res) {
     const text = 'SELECT * FROM users WHERE email = $1';
     try {
