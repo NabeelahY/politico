@@ -45,7 +45,7 @@ router.post('/office/:id/register', Auth.verifyRole, Candidate.createCandidate);
 
 router.get('/candidates', Auth.verifyToken, Candidate.getCandidates);
 
-router.post('/votes', VoteController.vote);
+router.post('/votes', Auth.verifyToken, VoteController.vote);
 
 router.get('/office/:id/result', Auth.verifyToken, VoteController.getResults);
 

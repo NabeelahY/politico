@@ -26,7 +26,7 @@ class OfficeController {
   // Get Specific Office
 
   static async getSpecificOffice(req, res) {
-    const findOffice = 'SELECT * FROM offices WHERE id = $1';
+    const findOffice = 'SELECT * FROM offices WHERE office_id = $1';
     try {
       const { rows } = await db.query(findOffice, [req.params.id]);
       if (!rows[0]) {

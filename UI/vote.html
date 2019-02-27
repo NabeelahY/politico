@@ -6,7 +6,6 @@
 	<link rel="stylesheet" href="style/main.css">
 	<meta content="width=device-width, initial-scale=1" name="viewport">
 </head>
-
 <body>
 	<header>
 		<a href="index.html" class="logo"><span>P</span>olitico</a>
@@ -18,124 +17,53 @@
 		</nav>
 	</header>
 	<main class="vote-wrapper">
+		<div id="info">
+			<span class="close">&times;</span>
+			<div id="msg"></div>
+		</div>
+		
 		<div id="dash">
-		<h2>Vote for your preferred candidate</h2>
-		<p>Choose one candidate per office</p>
+			<h2>Vote for your preferred candidate</h2>
+			<p>Choose one candidate per office</p>
 		</div>
-		<div class="vote">
-			<select id="offices">
-				<option value="">Select Office</option>
-				<option value="president">President</option>
-				<option value="governor">Governor</option>
-			</select>
-		</div>
-		<div id="president">
+		<div id="wrapper"></div>
 		<section class="wrapper">
-			<div class="title">
-				<h3>President</h3>
-				<p>Choose only <strong>ONE</strong> of the candidates</p>
-				<fieldset class="vote">
-					<div class="can-details">
-						<div>
-							<input type="radio" name="president" id="choice">
-							<label for="choice">Mohammed Buhari</label>
-							<img src="img/MB.jpg">
-							<p class="describe">Current President<br><br>
-								<strong>Party:</strong>All Progressive Congress (APC)
-							</p>
-						</div>
-						<div>
-							<hr>
-							<input type="radio" name="president" id="choice">
-							<label for="choice">Atiku Abubakar</label>
-							<img src="img/AA.jpg">
-							<p class="describe">
-								<strong>Party:</strong>People's Democratic Party (PDP)
-							</p>
-						</div>
-						<div>
-							<hr>
-							<input type="radio" name="president" id="choice">
-							<label for="choice">Oby Ezekwesili</label>
-							<img src="img/Oby.jpg">
-							<p class="describe">
-								<strong>Party:</strong>Allied Congress Party of Nigeria (ACPN)
-							</p>
-						</div>
-						<div>
-							<hr>
-							<input type="radio" name="president" id="choice">
-							<label for="choice">Omoyele Sowore</label>
-							<img src="img/sowore.jpg">
-							<p class="describe">
-								<strong>Party:</strong>African Action Congress (AAC)
-							</p>
-						</div>
-						<button>Vote</button>
-					</div>
-				</fieldset>
-			</div>
-		</section>
-	</div>
-	<div id="governor">
-		<section class="wrapper">
-			<div class="title state">
-				<h3>Governors</h3>
-				<p>Choose <strong>YOUR</strong> state</p>
-				<select>
-					<option>Select State</option>
-					<option>Lagos</option>
+			<form id="vote-form" name="vote-form" method="post">
+				<div id ='select'></div>
+				<div id ='president'></div>
+				<div id ='governor'></div>
+				<input type="submit" id="btn" value="Vote">
+				<!--<select id="offices">
+					<option value="">Select Office</option>
+					<option value="president">President</option>
+					<option value="governor">Governor</option>
 				</select>
-				<p>Choose only <strong>ONE</strong> of the candidates</p>
-				<fieldset class="vote">
-					<div class="can-details">
-						<div>
-							<input type="radio" name="governor" id="choice-g">
-							<label for="choice-g">Babajide Sanwo-Olu</label>
-							<img src="img/so.jpg">
-							<p class="describe">
-								<strong>Party:</strong>All Progressive Congress (APC)
-							</p>
-						</div>
-						<div>
-							<hr>
-							<input type="radio" name="governor" id="choice-g">
-							<label for="choice-g">Jimi Agbaje</label>
-							<img src="img/ja.jpg">
-							<p class="describe">
-								<strong>Party:</strong>Accord Party (AP)
-							</p>
-						</div>
-						<div>
-							<hr>
-							<input type="radio" name="governor" id="choice-g">
-							<label for="choice-g">Babatunde Gbadamosi</label>
-							<img src="img/bg.jpg">
-							<p class="describe">
-								<strong>Party:</strong>Action Democratic Party (ADP)
-							</p>
-						</div>
-						<div>
-							<hr>
-							<input type="radio" name="governor" id="choice-g">
-							<label for="choice-g">Owolabi Salis</label>
-							<img src="img/os.jpg">
-							<p class="describe">
-								<strong>Party:</strong>Alliance for Democracy (AD)
-							</p>
-						</div>
-						<button>Vote</button>
-					</div>
-				</fieldset>
-			</div>
+        
+				<input type="radio" name="president" value="${candidates.id}">
+				<label for="choice">Mohammed Buhari</label>
+				<img src="img/MB.jpg">
+				<p class="describe">Current President<br><br>
+					<strong>Party:</strong>All Progressive Congress (APC)
+				</p>
+
+				<hr>
+				<input type="radio" name="president" id="choice">
+				<label for="choice">Atiku Abubakar</label>
+				<img src="img/AA.jpg">
+				<p class="describe">
+					<strong>Party:</strong>People's Democratic Party (PDP)
+				</p>
+
+				<input type="submit" id="btn" value="Vote">
+			</form>-->
 		</section>
-	</div>
 	</main>
 	<footer>
 		<div class="footer">
 			<p>Copyright &copy; 2019 Politico</p>
 		</div>
 	</footer>
+	<script type="text/javascript" src="./client/vote.js"></script>
 	<script type="text/javascript" src="script/vote.js"></script>
 </body>
 </html>

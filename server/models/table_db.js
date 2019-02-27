@@ -23,7 +23,7 @@ const createTables = () => {
       );
       CREATE TABLE IF NOT EXISTS
       offices(
-        id SERIAL PRIMARY KEY,
+        office_id SERIAL PRIMARY KEY,
         type VARCHAR(128) NOT NULL,
         office_name VARCHAR(128) NOT NULL UNIQUE,
         created_at TIMESTAMP
@@ -42,8 +42,8 @@ const createTables = () => {
       );
       CREATE TABLE IF NOT EXISTS
       candidates(
-        id SERIAL,
-        office INTEGER REFERENCES offices(id) NOT NULL,
+        id SERIAL UNIQUE,
+        office INTEGER REFERENCES offices(office_id) NOT NULL,
         party INTEGER REFERENCES parties(id) NOT NULL,
         candidate INTEGER REFERENCES users(id) NOT NULL UNIQUE,
         created_at TIMESTAMP,
@@ -54,8 +54,8 @@ const createTables = () => {
        id SERIAL,
        created_at TIMESTAMP NOT NULL,
        created_by INTEGER REFERENCES users(id) NOT NULL,
-       office INTEGER REFERENCES offices(id) NOT NULL,
-       candidate INTEGER REFERENCES users(id) NOT NULL,
+       office INTEGER REFERENCES offices(office_id) NOT NULL,
+       candidate INTEGER REFERENCES candidates(id) NOT NULL,
        PRIMARY KEY(created_by, office)
        )`;
 
