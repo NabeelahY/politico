@@ -41,11 +41,11 @@ class Candidate {
   }
 
   static async getCandidates(req, res) {
-    const allCandidates = `SELECT candidates.id, offices.office_name, offices.type, parties.party_name, parties.logourl, users.firstname, users.othername, users.passporturl 
+    const allCandidates = `SELECT candidates.id, offices.office_name, offices.office_id, parties.party_name, parties.logourl, users.firstname, users.othername, users.passporturl 
                            FROM candidates 
                            INNER JOIN users on users.id = candidates.candidate 
                            INNER JOIN parties on parties.id = candidates.party
-                           INNER JOIN offices on offices.id = candidates.office`;
+                           INNER JOIN offices on offices.office_id = candidates.office`;
     try {
       const { rows, rowCount } = await db.query(allCandidates);
       if (rowCount < 1) {

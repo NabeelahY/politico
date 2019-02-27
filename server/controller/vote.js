@@ -1,13 +1,13 @@
 import db from '../models/db';
 
 class VoteController {
-  // Get all partiess
+  // Vote for candidate
   static async vote(req, res) {
     const populate = `INSERT INTO vote(created_at, created_by, office, candidate) 
     VALUES($1, $2, $3, $4) returning *`;
     const voteCandidate = [
       new Date(),
-      req.body.created_by,
+      req.user.id,
       req.body.office,
       req.body.candidate,
     ];
@@ -18,6 +18,7 @@ class VoteController {
         data: [rows[0]],
       });
     } catch (error) {
+      console.log(error);
       return res.status(404).send({
         status: res.statusCode,
         message: error.detail,
@@ -27,13 +28,13 @@ class VoteController {
 
   static async getResults(req, res) {
     const voteResults = 'SELECT office, candidate, COUNT(candidate) AS result FROM vote GROUP BY office, candidate';
-    const findOffice = 'SELECT * FROM offices WHERE id = $1';
+    const findOffice = 'SELECT * FROM offices WHERE office_id = $1';
     try {
       const id = await db.query(findOffice, [req.params.id]);
       if (!id) {
         return res.status(404).send({
           status: res.statusCode,
-          message: 'User id not found',
+          message: 'Office id not found',
         });
       }
       const { rows, rowCount } = await db.query(voteResults);

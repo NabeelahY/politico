@@ -45,7 +45,7 @@ const Auth = {
           message: 'Not authorized',
         });
       }
-      req.user = { isadmin: decoded.userRole };
+      req.user = { id: decoded.userId, isadmin: decoded.userRole };
       next();
     } catch (error) {
       return res.status(400).json(error);
