@@ -26,8 +26,14 @@ const createTables = () => {
         office_id SERIAL PRIMARY KEY,
         type VARCHAR(128) NOT NULL,
         office_name VARCHAR(128) NOT NULL UNIQUE,
-        created_at TIMESTAMP
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );
+      INSERT INTO offices
+      VALUES
+      (1, 'Federal', 'President'),
+      (2, 'State', 'Governor'),
+      (3, 'Legislative', 'Senate President'),
+      (4, 'Local Government', 'Chairman');
       CREATE TABLE IF NOT EXISTS
       users(
         id SERIAL PRIMARY KEY,
