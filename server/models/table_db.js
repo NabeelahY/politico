@@ -53,6 +53,7 @@ const createTables = () => {
         party INTEGER REFERENCES parties(id) NOT NULL,
         candidate INTEGER REFERENCES users(id) NOT NULL UNIQUE,
         created_at TIMESTAMP,
+        confirmed BOOLEAN,
         PRIMARY KEY(id, office)
         );
       CREATE TABLE IF NOT EXISTS
