@@ -1,6 +1,6 @@
 const token = localStorage.getItem('token');
-const candidateTable = document.getElementById('candidates');
-const governorTable = document.getElementById('governor');
+const candidateTable = document.getElementById('president-candidates');
+const governorTable = document.getElementById('governor-candidates');
 const message = document.getElementById('info');
 const close = document.getElementsByClassName('close')[0];
 

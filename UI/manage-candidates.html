@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Politico | Manage Candidates</title>        
+	<link rel="stylesheet" href="style/main.css">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+</head>
+
+<body>
+	<header>
+		<a href="index.html" class="logo"><span>P</span>olitico</a>
+		<nav class="navbar">
+			<ul>
+				<li><a href="home.html">HOME</a></li>
+				<li><a href="manage.html">MANAGE</a></li>
+
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<div id="info">
+			<span class="close">&times;</span>
+			<div id="msg"></div>
+		</div>
+		<div id="dash">
+			<h2>Manage Candidates</h2>
+			<div class="table">
+				<p>The following is an overview of candidate registration requests.<br> Confirm or decline their requests
+				</p>
+
+				<input type="text" name="search" id="search" placeholder="Search">
+				<table id="political-party">
+					<tr>
+						<th>Candidate's Name</th>
+						<th>Political Party</th>
+						<th>Interested Office</th>
+						<th>Confirm</th>
+						<th>Decline</th>
+					</tr>
+					<tbody id="party-table"></tbody>
+				</table>
+			</div>
+		</div>
+	</main>
+	<footer>
+		<div class="footer">
+	    	<p>Copyright &copy; 2019 Politico</p>
+		</div>
+	</footer>
+	<script type="text/javascript" src="./client/manage-candidates.js"></script>
+	<script type="text/javascript" src="script/main.js"></script>
+</body>
+</html>

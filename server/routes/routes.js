@@ -47,6 +47,10 @@ router.post('/office/:id/register', Auth.verifyRole, Candidate.createCandidate);
 
 router.get('/candidates', Auth.verifyToken, Candidate.getCandidates);
 
+router.patch('/office/:id/confirm', Auth.verifyRole, Candidate.confirmCandidate);
+
+router.delete('/candidates/:id', Auth.verifyRole, Candidate.deleteCandidate);
+
 router.post('/votes', Auth.verifyToken, VoteController.vote);
 
 router.get('/office/:id/result', Auth.verifyToken, VoteController.getResults);
