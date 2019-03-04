@@ -31,7 +31,7 @@ logIn.addEventListener('submit', (e) => {
         document.getElementById('msg').innerHTML = 'Login successful';
         localStorage.setItem('token', data.data[1].token);
         localStorage.setItem('userId', data.data[0].id);
-        window.location.assign('./admin.html');
+        window.location.assign('./admin-dashboard.html');
       } else if (data.status === 200 && data.data[0].isadmin === false) {
         message.style.display = 'block';
         document.getElementById('msg').innerHTML = 'Login successful';
