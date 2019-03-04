@@ -24,17 +24,19 @@ logIn.addEventListener('submit', (e) => {
       'password': pswd,
     }),
   })
-    .then((res) => res.json())
+    .then(res => res.json())
     .then((data) => {
       if (data.status === 200 && data.data[0].isadmin === true) {
         message.style.display = 'block';
         document.getElementById('msg').innerHTML = 'Login successful';
         localStorage.setItem('token', data.data[1].token);
-        window.location.assign('./admin.html');
+        localStorage.setItem('userId', data.data[0].id);
+        window.location.assign('./admin-dashboard.html');
       } else if (data.status === 200 && data.data[0].isadmin === false) {
         message.style.display = 'block';
         document.getElementById('msg').innerHTML = 'Login successful';
         localStorage.setItem('token', data.data[1].token);
+        localStorage.setItem('userId', data.data[0].id);
         window.location.assign('./home.html');
       } else if (data.message) {
         const obj = data.message;

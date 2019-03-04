@@ -7,11 +7,7 @@ const close = document.getElementsByClassName('close')[0];
 const displayMsg = (errors) => {
   errors.forEach((error) => {
     message.style.display = 'block';
-    document.getElementById('msg').innerHTML += `
-    <ul>
-      <li>${error}</li>
-    </ul>
-    `;
+    document.getElementById('msg').innerHTML += `${error}`;
   });
 };
 
@@ -21,22 +17,16 @@ close.onclick = () => {
 
 createParty.addEventListener('submit', (e) => {
   e.preventDefault();
-  const address = document.getElementById('address').value;
-  const partyName = document.getElementById('party-name').value;
-  const logo = document.getElementById('logo').value;
+
+  const data = new FormData(createParty);
 
   fetch('https://politico-page.herokuapp.com/api/v1/parties', {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
       'Accept': 'application/json, */*',
       'x-access-token': token,
     },
-    body: JSON.stringify({
-      'name': partyName,
-      'hqaddress': address,
-      'logourl': logo,
-    }),
+    body: data,
   })
     .then((res) => res.json())
     .then((data) => {
@@ -61,6 +51,7 @@ createParty.addEventListener('submit', (e) => {
       }
     })
     .catch((err) => {
+      console.log(err);
       if (err) {
         message.style.display = 'block';
         document.getElementById('msg').innerHTML = 'Not connected. Check your connection and try again.';
@@ -81,7 +72,7 @@ createOffice.addEventListener('submit', (e) => {
       'x-access-token': token,
     },
     body: JSON.stringify({
-      'name': officeName,
+      'office_name': officeName,
       'type': officeType,
     }),
   })
