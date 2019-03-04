@@ -188,13 +188,13 @@ header .sign-up a{
 }
 
 .boxes h3 {
-	padding: 20px;
+	padding: 5px;
 	line-height: 10vh;
 }
 .boxes div {
 	margin: 10px;
 	padding: 20px;
-	height: 25vh;
+	height: 26vh;
 	text-align: center;
 	background-color: #fff;
 	float: left;
@@ -207,7 +207,19 @@ header .sign-up a{
 	vertical-align: middle;
 	width: 440px;
 }
-
+.box i {
+	font-size: 25px;
+	margin-top: 10px;
+}
+.dashboard {
+	margin: 0 auto;
+	padding: 30px;
+	text-align: center;
+}
+.dashboard h3{
+  font-size: 2em;
+  color: #fff;
+}
 
 /*SIGN UP FORM STYLING*/
 .register {
@@ -286,10 +298,10 @@ header .sign-up a{
 }
 #info {
 	display: none;
-	width: 700px;
+	width: 80%;
 	background-color: #fff;
 	margin: 50px auto 0;
-	padding: 10px;
+	padding: 20px;
 	font-size: 20px;
 	color: #008753;
 	line-height: 30px;
@@ -310,9 +322,9 @@ header .sign-up a{
 	font-size: 1.5em;
 }
 .table{
-	margin: 20px auto;
-	padding: 30px;
-	width: 70%;
+	margin: 10px auto;
+	padding: 20px;
+	width: 80%;
 	background-color:#fff;
 	overflow-x: auto;
 }
@@ -448,7 +460,7 @@ div.row_data {
 .form1 {
 	float: right;
 	padding: 20px;
-	height: 370px;
+	height: 390px;
 }
 .form2{
 	float: left;
@@ -593,7 +605,7 @@ div.row_data {
 	background-color: #008753;
 	border:none;
 	color: #fff;
-	font-size: 30px;
+	font-size: 20px;
 }
 #president {
 	display: none;
@@ -662,7 +674,7 @@ fieldset .describe{
 .office {
 	position: relative;
 	overflow: hidden;
-	width: 700px;
+	width: 80%;
 	height: 500px;
 	margin: 0 auto;
 	margin-top: 80px;
@@ -715,12 +727,23 @@ fieldset .describe{
 	box-shadow: 0 8px 16px 0 #ccc, 0 6px 20px 0 #111;
 }
 
+.office-form input[type='submit'] {
+	display: block;
+	box-sizing: content-box;
+	margin: 10px auto;
+	color: #008753;
+	background-color: #008753;
+	border:none;
+	color: #fff;
+	font-size: 20px;
+}
+
 /*PROFILE*/ 
 .top {
 	width: 80%;
 	background-color: #fff;
 	margin: 20px auto;
-	padding: 10px;
+	padding: 20px;
 	color: #008753;
 }
 .top h2 {
@@ -741,11 +764,11 @@ fieldset .describe{
 .user-details p {
 	text-align: center;
 }
-.history{
+.table.history{
 	width: 80%;
 	background-color: #fff;
 	margin: 20px auto;
-	padding: 10px;
+	padding: 20px;
 	color: #008753;
 }
 .history h2 {
