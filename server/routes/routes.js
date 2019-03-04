@@ -15,6 +15,9 @@ const router = Router();
 const storageCloud = cloudinaryStorage({
   cloudinary: cloudinary,
   folder: 'demo',
+  transformation: [{
+    width: 400, height: 400, crop: 'limit',
+  }],
 });
 
 const upload = multer({ storage: storageCloud });
