@@ -7,6 +7,9 @@ const displayMsg = (errors) => {
     document.getElementById('msg').innerHTML += `${error}`;
   });
 };
+close.onclick = () => {
+  message.style.display = 'none';
+};
 
 logIn.addEventListener('submit', (e) => {
   e.preventDefault();
