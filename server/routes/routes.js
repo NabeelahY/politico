@@ -46,7 +46,7 @@ router.post('/auth/login', validateRequest, User.userLogin);
 
 router.get('/profile', Auth.verifyToken, User.getSpecificUser);
 
-router.post('/office/:id/register', Auth.verifyRole, Candidate.createCandidate);
+router.post('/office/:id/register', Auth.verifyToken, Candidate.createCandidate);
 
 router.get('/candidates', Auth.verifyToken, Candidate.getCandidates);
 
